@@ -15,11 +15,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\0_GodotProjects\\Project_0.csproj",
+      "projectUniqueName": "C:\\Users\\brantonj2795\\Documents\\GitHub\\GameJam\\Project_0.csproj",
       "projectName": "Project_0",
-      "projectPath": "C:\\0_GodotProjects\\Project_0.csproj",
+      "projectPath": "C:\\Users\\brantonj2795\\Documents\\GitHub\\GameJam\\Project_0.csproj",
       "packagesPath": "C:\\Users\\brantonj2795\\.nuget\\packages\\",
-      "outputPath": "C:\\0_GodotProjects\\.mono\\temp\\obj\\",
+      "outputPath": "C:\\Users\\brantonj2795\\Documents\\GitHub\\GameJam\\.mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

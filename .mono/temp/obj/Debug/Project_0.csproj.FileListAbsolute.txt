@@ -6,3 +6,9 @@ C:\0_GodotProjects\.mono\temp\obj\Debug\Project_0.AssemblyInfo.cs
 C:\0_GodotProjects\.mono\temp\obj\Debug\Project_0.csproj.CoreCompileInputs.cache
 C:\0_GodotProjects\.mono\temp\obj\Debug\Project_0.dll
 C:\0_GodotProjects\.mono\temp\obj\Debug\Project_0.pdb
+C:\Users\brantonj2795\Documents\GitHub\GameJam\.mono\temp\obj\Debug\Project_0.csprojAssemblyReference.cache
+C:\Users\brantonj2795\Documents\GitHub\GameJam\.mono\temp\obj\Debug\Project_0.AssemblyInfoInputs.cache
+C:\Users\brantonj2795\Documents\GitHub\GameJam\.mono\temp\obj\Debug\Project_0.AssemblyInfo.cs
+C:\Users\brantonj2795\Documents\GitHub\GameJam\.mono\temp\obj\Debug\Project_0.csproj.CoreCompileInputs.cache
+C:\Users\brantonj2795\Documents\GitHub\GameJam\.mono\temp\obj\Debug\Project_0.dll
+C:\Users\brantonj2795\Documents\GitHub\GameJam\.mono\temp\obj\Debug\Project_0.pdb
