@@ -12,6 +12,14 @@ public class PlayerMovement : RigidBody2D
 		GD.Print("Damage Taken Successfully");
 	}
 
+	// Bullet Variable
+	PackedScene bulletScene;
+
+    public override void _Ready()
+    {
+        bulletScene = GD.Load<PackedScene>("res://Bullet.tscn");
+    }
+
 	public void GetInput()
 	{
 		LookAt(GetGlobalMousePosition());
@@ -41,6 +49,18 @@ public class PlayerMovement : RigidBody2D
 		GetInput();
 		this.LinearVelocity = newVelocity;
 	}
+
+	// Handles input, used to fire bullet when left mouse button is clicked
+	public override void _UnhandledInput(InputEvent @event)
+    {
+        if (@event is InputEventMouseButton mouseEvent) {
+            if (mouseEvent.ButtonIndex == (int)ButtonList.Left && mouseEvent.Pressed) {
+                Bullet bullet = (Bullet)bulletScene.Instance();
+                bullet.Position = Position;
+                bullet.Rotation = Rotation;
+                GetParent().AddChild(bullet);
+                GetTree().SetInputAsHandled();
+            }
+        }
+    }
 }
-
-

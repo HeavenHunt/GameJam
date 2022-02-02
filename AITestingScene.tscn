@@ -3,10 +3,10 @@
 [ext_resource path="res://BaseEnemy.cs" type="Script" id=1]
 [ext_resource path="res://PlayerMovement.cs" type="Script" id=2]
 [ext_resource path="res://RedSlime04x.png" type="Texture" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://LooueiesOneFrameIdleTempQuestionMark4x.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 10.8753
+radius = 11.506
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 12.0505
@@ -19,7 +19,7 @@ radius = 190.129
 [node name="Player" type="Node" parent="."]
 
 [node name="PlayerBody" type="RigidBody2D" parent="Player"]
-position = Vector2( 226, 317 )
+position = Vector2( 225, 316 )
 collision_layer = 3
 collision_mask = 3
 mode = 2
@@ -30,11 +30,17 @@ __meta__ = {
 speed = 300
 
 [node name="Sprite" type="Sprite" parent="Player/PlayerBody"]
+position = Vector2( 1, -1.10448 )
+rotation = 1.5708
+scale = Vector2( 0.0864516, 0.0851613 )
 texture = ExtResource( 4 )
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="Player/PlayerBody"]
 scale = Vector2( 3.65135, 3.55979 )
 shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="Player/PlayerBody"]
+current = true
 
 [node name="Enemy" type="Node" parent="."]
 

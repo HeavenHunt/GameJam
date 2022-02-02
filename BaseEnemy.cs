@@ -79,7 +79,7 @@ public class BaseEnemy : RigidBody2D
 		{
 			//replace with patrol/idle code
 			//this.LookAt(GetLocalMousePosition());
-			LookAt(GetGlobalMousePosition());
+			//LookAt(GetGlobalMousePosition());
 			Position += LinearVelocity.Clamped(100.0f) * delta * MovementSpeed;
 		}
 	}
