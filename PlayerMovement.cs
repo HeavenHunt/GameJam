@@ -4,8 +4,13 @@ using System;
 public class PlayerMovement : RigidBody2D
 {
 	[Export] public int speed = 200;
-
+	[Export] public float health = 5.0f;
 	public Vector2 newVelocity = new Vector2();
+	private void _on_EnemyBody_PlayerDamaged(float DamageTaken)
+	{
+		health -= DamageTaken;
+		GD.Print("Damage Taken Successfully");
+	}
 
 	public void GetInput()
 	{
@@ -29,7 +34,13 @@ public class PlayerMovement : RigidBody2D
 
 	public override void _PhysicsProcess(float delta)
 	{
+		if (health <= 0.0f)
+		{
+			QueueFree();
+		}
 		GetInput();
 		this.LinearVelocity = newVelocity;
 	}
 }
+
+
