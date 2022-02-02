@@ -34,7 +34,7 @@ public class BaseEnemy : RigidBody2D
 	private void AttackPlayer()
 	{
 		EmitSignal(nameof(PlayerDamaged), AttackPower);
-		//GD.Print("Health Reduced");
+		GD.Print("Health Reduced");
 		AttackCooldown.Start(TimeBetweenAttacks);
 		AttackReady = false;
 	}
@@ -59,8 +59,9 @@ public class BaseEnemy : RigidBody2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		Player = GetNode<RigidBody2D>("/root/Root/Player/PlayerBody");
-		AttackCooldown = GetNode<Timer>("/root/Root/Enemy/EnemyBody/AttackTimer");
+		Player = GetNode<RigidBody2D>("/root/World/Player/PlayerBody");
+		GD.Print(Player.ToString());
+		AttackCooldown = GetNode<Timer>("/root/World/Enemy/EnemyBody/AttackTimer");
 	}
 
 	// called every frame. 'delta' is the elapsed time since the previous frame.
