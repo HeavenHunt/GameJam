@@ -1,0 +1,8 @@
+C:\0_GodotProjects\.mono\temp\bin\Debug\Project_0.dll
+C:\0_GodotProjects\.mono\temp\bin\Debug\Project_0.pdb
+C:\0_GodotProjects\.mono\temp\obj\Debug\Project_0.csprojAssemblyReference.cache
+C:\0_GodotProjects\.mono\temp\obj\Debug\Project_0.AssemblyInfoInputs.cache
+C:\0_GodotProjects\.mono\temp\obj\Debug\Project_0.AssemblyInfo.cs
+C:\0_GodotProjects\.mono\temp\obj\Debug\Project_0.csproj.CoreCompileInputs.cache
+C:\0_GodotProjects\.mono\temp\obj\Debug\Project_0.dll
+C:\0_GodotProjects\.mono\temp\obj\Debug\Project_0.pdb
