@@ -5,8 +5,8 @@ public class BaseEnemy : RigidBody2D
 {
 	public RigidBody2D Player;
 	//public int Health;
-	public float AttackPower = 1.0f;
-	public float MovementSpeed = 1.0f;
+	[Export] public float AttackPower = 1.0f;
+	[Export] public float MovementSpeed = 1.0f;
 	public bool PlayerFound = false;
 	public bool InAttackRange = false;
 	public Timer AttackCooldown;
