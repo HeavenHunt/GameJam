@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://BaseEnemy.cs" type="Script" id=1]
 [ext_resource path="res://PlayerMovement.cs" type="Script" id=2]
 [ext_resource path="res://RedSlime04x.png" type="Texture" id=3]
 [ext_resource path="res://LooueiesOneFrameIdleTempQuestionMark4x.png" type="Texture" id=4]
+[ext_resource path="res://PauseMenu.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 11.506
@@ -40,6 +41,7 @@ scale = Vector2( 3.65135, 3.55979 )
 shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="Player/PlayerBody"]
+pause_mode = 2
 current = true
 
 [node name="Enemy" type="Node" parent="."]
@@ -75,6 +77,9 @@ shape = SubResource( 4 )
 
 [node name="AttackTimer" type="Timer" parent="Enemy/EnemyBody"]
 wait_time = 0.3
+
+[node name="Pause" parent="." instance=ExtResource( 5 )]
+follow_viewport_enable = false
 
 [connection signal="PlayerDamaged" from="Enemy/EnemyBody" to="Player/PlayerBody" method="_on_EnemyBody_PlayerDamaged"]
 [connection signal="body_entered" from="Enemy/EnemyBody" to="Enemy/EnemyBody" method="_on_EnemyBody_body_entered"]
