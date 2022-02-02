@@ -6,25 +6,16 @@ public class Player : Node2D
     [Export] public float maxHealth = 10f;
     public float currentHealth;
 
-    //private ProgressBar healthProgress;
-    private PlayerObserver observer;
-    //private HBoxContainer keyContainer;
+    private UIController uiController;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        //health and healthbar
+        //references
+        uiController = GetNode<UIController>("/root/World/Control");
+
+        //stats
         currentHealth = maxHealth;
-        healthProgress = GetNode<ProgressBar>("/root/World/Control/UI_Container/HealthBar/HealthProgress");
-        healthProgress.MaxValue = maxHealth;
-        healthProgress.Value = maxHealth;
-
-        //key UI
-        keyContainer = GetNode<HBoxContainer>("/root/World/Control/UI_Container/KeyUI/KeyContainer");
-    }
-
-    public void addObserver(PlayerObserver playerObserver){
-        observer = playerObserver;
     }
 
     public void _on_RigidBody2D_body_entered(Node body){
@@ -34,7 +25,8 @@ public class Player : Node2D
         if (body.Name == "Key"){
             GD.Print("Picked up " + body.Name + "!");
 
-            //keyContainer.AddChild((Node)GD.Load("res://PurpleKey.tscn"));
+            //TODO
+            //uiController.UpdateKeys()
 
             body.QueueFree();
         }
@@ -50,7 +42,7 @@ public class Player : Node2D
         if (currentHealth < 0)
             currentHealth = 0;
 
-        healthProgress.Value = currentHealth;
+        
         //observer.PlayerHealthUpdate(currentHealth);
     }
 
