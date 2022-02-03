@@ -3,19 +3,16 @@ using System;
 
 public class UIController : Control
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
+    private ProgressBar healthProgress;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        
+        healthProgress = GetNode<ProgressBar>("/root/World/Control/UI_Container/HealthBar/HealthProgress");
     }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
+    public void _on_Player_UpdateHealth(float healthCurrent, float healthMax){
+        healthProgress.MaxValue = healthMax;
+        healthProgress.Value = healthCurrent;
+    }
 }

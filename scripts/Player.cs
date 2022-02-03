@@ -5,17 +5,14 @@ public class Player : Node2D
 {
     [Export] public float maxHealth = 10f;
     public float currentHealth;
-
-    private UIController uiController;
+    [Signal] public delegate void UpdateHealth(float healthCurrent, float healthMax);
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        //references
-        uiController = GetNode<UIController>("/root/World/Control");
-
         //stats
         currentHealth = maxHealth;
+        EmitSignal("HealthUpdate",currentHealth,maxHealth);
     }
 
     public void _on_RigidBody2D_body_entered(Node body){
@@ -42,8 +39,7 @@ public class Player : Node2D
         if (currentHealth < 0)
             currentHealth = 0;
 
-        
-        //observer.PlayerHealthUpdate(currentHealth);
+        EmitSignal("UpdateHealth",currentHealth, maxHealth);
     }
 
 }

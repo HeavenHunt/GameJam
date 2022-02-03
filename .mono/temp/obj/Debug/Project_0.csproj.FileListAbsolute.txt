@@ -12,3 +12,12 @@ C:\Users\brantonj2795\Documents\GitHub\GameJam\.mono\temp\obj\Debug\Project_0.As
 C:\Users\brantonj2795\Documents\GitHub\GameJam\.mono\temp\obj\Debug\Project_0.csproj.CoreCompileInputs.cache
 C:\Users\brantonj2795\Documents\GitHub\GameJam\.mono\temp\obj\Debug\Project_0.dll
 C:\Users\brantonj2795\Documents\GitHub\GameJam\.mono\temp\obj\Debug\Project_0.pdb
+C:\1_GodotProjects\heavenHunt\GameJam\.mono\temp\obj\Debug\Project_0.csproj.AssemblyReference.cache
+C:\1_GodotProjects\heavenHunt\GameJam\.mono\temp\obj\Debug\Project_0.GeneratedMSBuildEditorConfig.editorconfig
+C:\1_GodotProjects\heavenHunt\GameJam\.mono\temp\obj\Debug\Project_0.AssemblyInfoInputs.cache
+C:\1_GodotProjects\heavenHunt\GameJam\.mono\temp\obj\Debug\Project_0.AssemblyInfo.cs
+C:\1_GodotProjects\heavenHunt\GameJam\.mono\temp\obj\Debug\Project_0.csproj.CoreCompileInputs.cache
+C:\1_GodotProjects\heavenHunt\GameJam\.mono\temp\obj\Debug\Project_0.dll
+C:\1_GodotProjects\heavenHunt\GameJam\.mono\temp\obj\Debug\Project_0.pdb
+C:\1_GodotProjects\heavenHunt\GameJam\.mono\temp\bin\Debug\Project_0.dll
+C:\1_GodotProjects\heavenHunt\GameJam\.mono\temp\bin\Debug\Project_0.pdb
