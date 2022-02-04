@@ -9,7 +9,7 @@ radius = 12.0505
 [sub_resource type="CircleShape2D" id=4]
 radius = 190.129
 
-[node name="Enemy" type="Node"]
+[node name="MeleeEnemy" type="Node"]
 
 [node name="EnemyBody" type="RigidBody2D" parent="."]
 position = Vector2( 590, 309 )
