@@ -87,4 +87,3 @@ private void _on_KeyHitbox_area_entered(Area2D area)
 	}
 }
 }
-
