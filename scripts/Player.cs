@@ -17,7 +17,7 @@ public class Player : Node2D
     }
 
     public void _on_RigidBody2D_body_entered(Node body){
-        GD.Print(body.Name);
+        //GD.Print(body.Name);
         if (body.Name == "Enemy")
             TakeDamage(1f);
         if (body.IsInGroup("Key")){

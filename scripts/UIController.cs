@@ -29,7 +29,7 @@ public class UIController : Control
 
         //set proper Texture
         if (key.IsInGroup("Key_Blue")){
-            keyToAdd.Texture = (Texture)GD.Load("res://assets/art/Keys_Blue.png");
+            keyToAdd.Texture = (Texture)GD.Load("res://assets/art/Key_Blue.png");
         }
         else if (key.IsInGroup("Key_Green")){
             keyToAdd.Texture = (Texture)GD.Load("res://assets/art/Key_Green.png");
@@ -46,7 +46,6 @@ public class UIController : Control
         else if (key.IsInGroup("Key_Yellow")){
             keyToAdd.Texture = (Texture)GD.Load("res://assets/art/Key_Yellow.png");
         }
-        
         
         keyContainer.AddChild(keyToAdd);
     }

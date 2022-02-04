@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/PlayerMovement.cs" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://assets/art/UI_HealthBar_JustRedBar.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/UI_HealthBar_NoRed.png" type="Texture" id=8]
 [ext_resource path="res://scenes/Keys/Key_Green.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/Keys/Key_Red.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Keys/Key_Purple.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/Keys/Key_Teal.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/Keys/Key_Yellow.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 12, 13.5 )
@@ -102,13 +106,17 @@ shape = SubResource( 2 )
 [node name="Sprite" type="Sprite" parent="Actors/Player/RigidBody2D"]
 texture = ExtResource( 2 )
 
-[node name="Key" parent="Actors" instance=ExtResource( 5 )]
+[node name="Key_Blue" parent="Actors" instance=ExtResource( 5 )]
 
-[node name="Key2" parent="Actors" instance=ExtResource( 9 )]
-position = Vector2( 289, 477 )
+[node name="Key_Green" parent="Actors" instance=ExtResource( 9 )]
 
-[node name="Key3" parent="Actors" instance=ExtResource( 5 )]
-position = Vector2( 873, 459 )
+[node name="Key_Purple" parent="Actors" instance=ExtResource( 11 )]
+
+[node name="Key_Red" parent="Actors" instance=ExtResource( 10 )]
+
+[node name="Key_Teal" parent="Actors" instance=ExtResource( 12 )]
+
+[node name="Key_Yellow" parent="Actors" instance=ExtResource( 13 )]
 
 [connection signal="AddKey" from="Actors/Player" to="Control" method="_on_Player_AddKey"]
 [connection signal="UpdateHealth" from="Actors/Player" to="Control" method="_on_Player_UpdateHealth"]

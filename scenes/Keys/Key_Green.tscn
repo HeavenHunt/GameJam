@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 28, 57 )
 
-[node name="Key" type="RigidBody2D" groups=["Key", "Key_Green"]]
+[node name="Key_Green" type="RigidBody2D" groups=["Key", "Key_Green"]]
 position = Vector2( 599, 416 )
 gravity_scale = 0.0
 linear_damp = 10.0
