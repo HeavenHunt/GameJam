@@ -30,3 +30,5 @@ C:\0_GodotProjects\HeavenHunt\GameJam\.mono\temp\obj\Debug\Project_0.AssemblyInf
 C:\0_GodotProjects\HeavenHunt\GameJam\.mono\temp\obj\Debug\Project_0.csproj.CoreCompileInputs.cache
 C:\0_GodotProjects\HeavenHunt\GameJam\.mono\temp\obj\Debug\Project_0.dll
 C:\0_GodotProjects\HeavenHunt\GameJam\.mono\temp\obj\Debug\Project_0.pdb
+C:\Users\brantonj2795\Documents\GitHub\GameJam\.mono\temp\bin\Debug\Project_0.dll
+C:\Users\brantonj2795\Documents\GitHub\GameJam\.mono\temp\bin\Debug\Project_0.pdb

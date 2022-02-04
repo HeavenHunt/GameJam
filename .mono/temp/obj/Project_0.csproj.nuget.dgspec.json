@@ -1,21 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\0_GodotProjects\\HeavenHunt\\GameJam\\Project_0.csproj": {}
+    "C:\\Users\\brantonj2795\\Documents\\GitHub\\GameJam\\Project_0.csproj": {}
   },
   "projects": {
-    "C:\\0_GodotProjects\\HeavenHunt\\GameJam\\Project_0.csproj": {
+    "C:\\Users\\brantonj2795\\Documents\\GitHub\\GameJam\\Project_0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\0_GodotProjects\\HeavenHunt\\GameJam\\Project_0.csproj",
+        "projectUniqueName": "C:\\Users\\brantonj2795\\Documents\\GitHub\\GameJam\\Project_0.csproj",
         "projectName": "Project_0",
-        "projectPath": "C:\\0_GodotProjects\\HeavenHunt\\GameJam\\Project_0.csproj",
-        "packagesPath": "C:\\Users\\BrantonJohn\\.nuget\\packages\\",
-        "outputPath": "C:\\0_GodotProjects\\HeavenHunt\\GameJam\\.mono\\temp\\obj\\",
+        "projectPath": "C:\\Users\\brantonj2795\\Documents\\GitHub\\GameJam\\Project_0.csproj",
+        "packagesPath": "C:\\Users\\brantonj2795\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\brantonj2795\\Documents\\GitHub\\GameJam\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "C:\\Users\\BrantonJohn\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\brantonj2795\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net472"
@@ -39,7 +45,7 @@
       "frameworks": {
         "net472": {
           "targetAlias": "net472",
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.210\\RuntimeIdentifierGraph.json"
         }
       }
     }

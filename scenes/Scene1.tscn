@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scripts/PlayerMovement.cs" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Player.cs" type="Script" id=3]
 [ext_resource path="res://scripts/Enemy.cs" type="Script" id=4]
-[ext_resource path="res://scenes/Key_Purple.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Keys/Key_Blue.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/UIController.cs" type="Script" id=6]
 [ext_resource path="res://assets/art/UI_HealthBar_JustRedBar.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/UI_HealthBar_NoRed.png" type="Texture" id=8]
+[ext_resource path="res://scenes/Keys/Key_Green.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 12, 13.5 )
@@ -60,7 +61,7 @@ __meta__ = {
 [node name="KeyContainer" type="HBoxContainer" parent="Control/UI_Container"]
 margin_top = 104.0
 margin_right = 414.0
-margin_bottom = 136.0
+margin_bottom = 135.0
 
 [node name="KeyLabel" type="Label" parent="Control/UI_Container/KeyContainer"]
 margin_right = 34.0
@@ -70,20 +71,6 @@ text = "Keys:
 "
 align = 1
 valign = 1
-
-[node name="PurpleKey" type="TextureRect" parent="Control/UI_Container/KeyContainer"]
-modulate = Color( 0.945098, 0, 1, 1 )
-margin_left = 38.0
-margin_right = 70.0
-margin_bottom = 32.0
-rect_min_size = Vector2( 32, 32 )
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource( 2 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Actors" type="Node2D" parent="."]
 
@@ -98,8 +85,6 @@ shape = SubResource( 3 )
 [node name="Sprite" type="Sprite" parent="Actors/Enemy"]
 modulate = Color( 1, 0.72549, 0, 1 )
 texture = ExtResource( 2 )
-
-[node name="Key_Purple" parent="Actors" instance=ExtResource( 5 )]
 
 [node name="Player" type="Node2D" parent="Actors"]
 script = ExtResource( 3 )
@@ -116,6 +101,14 @@ shape = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Actors/Player/RigidBody2D"]
 texture = ExtResource( 2 )
+
+[node name="Key" parent="Actors" instance=ExtResource( 5 )]
+
+[node name="Key2" parent="Actors" instance=ExtResource( 9 )]
+position = Vector2( 289, 477 )
+
+[node name="Key3" parent="Actors" instance=ExtResource( 5 )]
+position = Vector2( 873, 459 )
 
 [connection signal="AddKey" from="Actors/Player" to="Control" method="_on_Player_AddKey"]
 [connection signal="UpdateHealth" from="Actors/Player" to="Control" method="_on_Player_UpdateHealth"]
