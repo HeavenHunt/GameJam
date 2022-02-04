@@ -12,7 +12,7 @@ public class Player : Node2D
     {
         //stats
         currentHealth = maxHealth;
-        EmitSignal("HealthUpdate",currentHealth,maxHealth);
+        EmitSignal("UpdateHealth",currentHealth,maxHealth);
     }
 
     public void _on_RigidBody2D_body_entered(Node body){
