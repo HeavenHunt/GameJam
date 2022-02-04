@@ -4,7 +4,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://scripts/Player.cs" type="Script" id=3]
 [ext_resource path="res://scripts/Enemy.cs" type="Script" id=4]
-[ext_resource path="res://scenes/PurpleKey.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/Key_Purple.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scripts/UIController.cs" type="Script" id=6]
 [ext_resource path="res://assets/art/UI_HealthBar_JustRedBar.png" type="Texture" id=7]
 [ext_resource path="res://assets/art/UI_HealthBar_NoRed.png" type="Texture" id=8]
@@ -71,17 +71,19 @@ text = "Keys:
 align = 1
 valign = 1
 
-[node name="Key" parent="Control/UI_Container/KeyContainer" instance=ExtResource( 5 )]
+[node name="PurpleKey" type="TextureRect" parent="Control/UI_Container/KeyContainer"]
+modulate = Color( 0.945098, 0, 1, 1 )
 margin_left = 38.0
 margin_right = 70.0
-
-[node name="Key2" parent="Control/UI_Container/KeyContainer" instance=ExtResource( 5 )]
-margin_left = 74.0
-margin_right = 106.0
-
-[node name="Key3" parent="Control/UI_Container/KeyContainer" instance=ExtResource( 5 )]
-margin_left = 110.0
-margin_right = 142.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 32, 32 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Actors" type="Node2D" parent="."]
 
@@ -97,19 +99,7 @@ shape = SubResource( 3 )
 modulate = Color( 1, 0.72549, 0, 1 )
 texture = ExtResource( 2 )
 
-[node name="Key" type="RigidBody2D" parent="Actors"]
-position = Vector2( 599, 416 )
-gravity_scale = 0.0
-linear_damp = 10.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors/Key"]
-position = Vector2( 0, -0.5 )
-shape = SubResource( 3 )
-
-[node name="Sprite" type="Sprite" parent="Actors/Key"]
-modulate = Color( 0.898039, 0, 1, 1 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 2 )
+[node name="Key_Purple" parent="Actors" instance=ExtResource( 5 )]
 
 [node name="Player" type="Node2D" parent="Actors"]
 script = ExtResource( 3 )
@@ -127,5 +117,6 @@ shape = SubResource( 2 )
 [node name="Sprite" type="Sprite" parent="Actors/Player/RigidBody2D"]
 texture = ExtResource( 2 )
 
+[connection signal="AddKey" from="Actors/Player" to="Control" method="_on_Player_AddKey"]
 [connection signal="UpdateHealth" from="Actors/Player" to="Control" method="_on_Player_UpdateHealth"]
 [connection signal="body_entered" from="Actors/Player/RigidBody2D" to="Actors/Player" method="_on_RigidBody2D_body_entered"]
