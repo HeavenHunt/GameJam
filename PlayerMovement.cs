@@ -6,11 +6,7 @@ public class PlayerMovement : RigidBody2D
 	[Export] public int speed = 200;
 	[Export] public float health = 5.0f;
 	public Vector2 newVelocity = new Vector2();
-	private void _on_EnemyBody_PlayerDamaged(float DamageTaken)
-	{
-		health -= DamageTaken;
-		GD.Print("Damage Taken Successfully");
-	}
+	
 
 	public void GetInput()
 	{
