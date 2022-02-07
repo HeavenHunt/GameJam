@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/PunkRockSlime0.png-eab8f8bba6d79388d1e0408c8633c737.stex"
+path="res://.import/Bullet.png-195a11788d6f330d4157f4688a051a8e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PunkRockSlime0.png"
-dest_files=[ "res://.import/PunkRockSlime0.png-eab8f8bba6d79388d1e0408c8633c737.stex" ]
+source_file="res://Images/Bullet.png"
+dest_files=[ "res://.import/Bullet.png-195a11788d6f330d4157f4688a051a8e.stex" ]
 
 [params]
 
