@@ -21,4 +21,12 @@ public class PauseMenu : Control
             SetIsPaused(!GetIsPaused());
         }
     }
+
+    public void Resume_Button_Pressed() {
+        SetIsPaused(false);
+    }
+
+    public void Quit_Button_Pressed() {
+        GetTree().Quit();
+    }
 }
