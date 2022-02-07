@@ -32,7 +32,7 @@ collision_mask = 6
 
 [node name="AnimatedSprite" parent="MeleeEnemy/EnemyBody" index="5"]
 rotation = 1.5708
-frame = 5
+frame = 6
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
@@ -51,7 +51,7 @@ scale = Vector2( 0.0864414, 0.0864414 )
 position = Vector2( 1005, 212 )
 
 [node name="AnimatedSprite" parent="ProjectileEnemy/EnemyBody" index="5"]
-frame = 4
+frame = 5
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ProjectileEnemy"]
 frames = SubResource( 2 )
