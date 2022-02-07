@@ -4,7 +4,6 @@
 
 [node name="Pause" type="CanvasLayer"]
 pause_mode = 2
-follow_viewport_enable = true
 
 [node name="Control" type="Control" parent="."]
 pause_mode = 2

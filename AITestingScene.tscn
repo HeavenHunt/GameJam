@@ -79,7 +79,6 @@ shape = SubResource( 4 )
 wait_time = 0.3
 
 [node name="Pause" parent="." instance=ExtResource( 5 )]
-follow_viewport_enable = false
 
 [connection signal="PlayerDamaged" from="Enemy/EnemyBody" to="Player/PlayerBody" method="_on_EnemyBody_PlayerDamaged"]
 [connection signal="body_entered" from="Enemy/EnemyBody" to="Enemy/EnemyBody" method="_on_EnemyBody_body_entered"]
