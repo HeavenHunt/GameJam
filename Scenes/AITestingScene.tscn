@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://BaseEnemy.cs" type="Script" id=1]
-[ext_resource path="res://PlayerMovement.cs" type="Script" id=2]
-[ext_resource path="res://RedSlime04x.png" type="Texture" id=3]
-[ext_resource path="res://LooueiesOneFrameIdleTempQuestionMark4x.png" type="Texture" id=4]
-[ext_resource path="res://PauseMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/BaseEnemy.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/PlayerMovement.cs" type="Script" id=2]
+[ext_resource path="res://Images/RedSlime04x.png" type="Texture" id=3]
+[ext_resource path="res://Images/LooueiesOneFrameIdleTempQuestionMark4x.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=5]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 11.506

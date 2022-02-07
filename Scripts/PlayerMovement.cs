@@ -19,7 +19,7 @@ public class PlayerMovement : RigidBody2D
 
     public override void _Ready()
     {
-        bulletScene = GD.Load<PackedScene>("res://Bullet.tscn");
+        bulletScene = GD.Load<PackedScene>("res://Scenes/Bullet.tscn");
 		
     }
 

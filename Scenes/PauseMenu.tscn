@@ -1,12 +1,13 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://PauseMenu.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/PauseMenu.cs" type="Script" id=1]
 
 [node name="Pause" type="CanvasLayer"]
 pause_mode = 2
 
 [node name="Control" type="Control" parent="."]
 pause_mode = 2
+visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 script = ExtResource( 1 )
