@@ -1,16 +1,21 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=79 format=2]
 
 [ext_resource path="res://GameMap_NoDoors.png" type="Texture" id=1]
-[ext_resource path="res://KeyCollision.cs" type="Script" id=2]
+[ext_resource path="res://CollisionAnimationController.cs" type="Script" id=2]
 [ext_resource path="res://samplemovement.cs" type="Script" id=3]
 [ext_resource path="res://Looueies0.png" type="Texture" id=4]
-[ext_resource path="res://Door_PNG.png" type="Texture" id=5]
+[ext_resource path="res://Teal_Door_Sprite.png" type="Texture" id=5]
 [ext_resource path="res://Keys_Blue.png" type="Texture" id=6]
 [ext_resource path="res://Keys_Purple.png" type="Texture" id=7]
 [ext_resource path="res://Keys_Green.png" type="Texture" id=8]
 [ext_resource path="res://Key_Red.png" type="Texture" id=9]
 [ext_resource path="res://Key_Yellow.png" type="Texture" id=10]
 [ext_resource path="res://Key_Teal.png" type="Texture" id=11]
+[ext_resource path="res://green_Door_Sprite.png" type="Texture" id=12]
+[ext_resource path="res://yellow_Door_Sprite.png" type="Texture" id=13]
+[ext_resource path="res://violet_Door_Sprite.png" type="Texture" id=14]
+[ext_resource path="res://Red_Door_Sprite.png" type="Texture" id=15]
+[ext_resource path="res://blue_Door_Sprite.png" type="Texture" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 61.75, 9.5 )
@@ -81,16 +86,214 @@ radius = 15.0
 [sub_resource type="CircleShape2D" id=23]
 radius = 15.0333
 
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 10, 17.75 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 0, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 391, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 782, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 1173, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 16 )
+region = Rect2( 1564, 0, 391, 407 )
+
+[sub_resource type="SpriteFrames" id=32]
+animations = [ {
+"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
+"loop": true,
+"name": "New Anim",
+"speed": 6.0
+} ]
+
 [sub_resource type="RectangleShape2D" id=24]
 extents = Vector2( 7.25, 47 )
 
 [sub_resource type="RectangleShape2D" id=26]
 extents = Vector2( 4, 46.5 )
 
-[sub_resource type="RectangleShape2D" id=25]
-extents = Vector2( 10, 17.75 )
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 0, 0, 391, 407 )
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="AtlasTexture" id=34]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 391, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 782, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=36]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 1173, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 4
+atlas = ExtResource( 14 )
+region = Rect2( 1564, 0, 391, 407 )
+
+[sub_resource type="SpriteFrames" id=38]
+animations = [ {
+"frames": [ SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[sub_resource type="AtlasTexture" id=39]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 0, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=40]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 391, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=41]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 782, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=42]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 1173, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=43]
+flags = 4
+atlas = ExtResource( 12 )
+region = Rect2( 1564, 0, 391, 407 )
+
+[sub_resource type="SpriteFrames" id=44]
+animations = [ {
+"frames": [ SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[sub_resource type="AtlasTexture" id=45]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 0, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=46]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 391, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=47]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 782, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=48]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 1173, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=49]
+flags = 4
+atlas = ExtResource( 15 )
+region = Rect2( 1564, 0, 391, 407 )
+
+[sub_resource type="SpriteFrames" id=50]
+animations = [ {
+"frames": [ SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[sub_resource type="AtlasTexture" id=51]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 0, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=52]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 391, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=53]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 782, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=54]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1173, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=55]
+flags = 4
+atlas = ExtResource( 13 )
+region = Rect2( 1564, 0, 391, 407 )
+
+[sub_resource type="SpriteFrames" id=56]
+animations = [ {
+"frames": [ SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[sub_resource type="AtlasTexture" id=57]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=58]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 391, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=59]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 782, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=60]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1173, 0, 391, 407 )
+
+[sub_resource type="AtlasTexture" id=61]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 1564, 0, 391, 407 )
+
+[sub_resource type="SpriteFrames" id=62]
+animations = [ {
+"frames": [ SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[node name="World" type="Node2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -1, 36 )
@@ -209,123 +412,6 @@ shape = SubResource( 23 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
 
-[node name="Door" type="Area2D" parent="." groups=["Door1"]]
-position = Vector2( 0, 1 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
-position = Vector2( -260.25, -67 )
-shape = SubResource( 24 )
-
-[node name="Sprite" type="Sprite" parent="Door"]
-position = Vector2( -259.978, -67.5316 )
-rotation = 1.56673
-scale = Vector2( 0.349708, 0.357134 )
-texture = ExtResource( 5 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Door"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/StaticBody2D"]
-position = Vector2( -260, -67.5 )
-shape = SubResource( 26 )
-
-[node name="Door2" type="Area2D" parent="." groups=["Door2"]]
-position = Vector2( -527, 446 )
-rotation = 1.5708
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
-position = Vector2( -260.25, -67 )
-shape = SubResource( 24 )
-
-[node name="Sprite" type="Sprite" parent="Door2"]
-position = Vector2( -259.978, -67.5316 )
-rotation = 1.56673
-scale = Vector2( 0.349708, 0.357134 )
-texture = ExtResource( 5 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Door2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2/StaticBody2D"]
-position = Vector2( -260, -67.5 )
-shape = SubResource( 26 )
-
-[node name="Door3" type="Area2D" parent="." groups=["Door3"]]
-position = Vector2( -355, 437 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3"]
-position = Vector2( -260.25, -67 )
-shape = SubResource( 24 )
-
-[node name="Sprite" type="Sprite" parent="Door3"]
-position = Vector2( -259.978, -67.5316 )
-rotation = 1.56673
-scale = Vector2( 0.349708, 0.357134 )
-texture = ExtResource( 5 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Door3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door3/StaticBody2D"]
-position = Vector2( -260, -67.5 )
-shape = SubResource( 26 )
-
-[node name="Door4" type="Area2D" parent="." groups=["Door4"]]
-position = Vector2( -152, 447 )
-rotation = 1.5708
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door4"]
-position = Vector2( -260.25, -67 )
-shape = SubResource( 24 )
-
-[node name="Sprite" type="Sprite" parent="Door4"]
-position = Vector2( -259.978, -67.5316 )
-rotation = 1.56673
-scale = Vector2( 0.349708, 0.357134 )
-texture = ExtResource( 5 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Door4"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door4/StaticBody2D"]
-position = Vector2( -260, -67.5 )
-shape = SubResource( 26 )
-
-[node name="Door5" type="Area2D" parent="." groups=["Door5"]]
-position = Vector2( -152, 70 )
-rotation = 1.5708
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door5"]
-position = Vector2( -260.25, -67 )
-shape = SubResource( 24 )
-
-[node name="Sprite" type="Sprite" parent="Door5"]
-position = Vector2( -259.978, -67.5316 )
-rotation = 1.56673
-scale = Vector2( 0.349708, 0.357134 )
-texture = ExtResource( 5 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Door5"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door5/StaticBody2D"]
-position = Vector2( -260, -67.5 )
-shape = SubResource( 26 )
-
-[node name="Door6" type="Area2D" parent="." groups=["Door6"]]
-position = Vector2( 337, 22 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door6"]
-position = Vector2( -260.25, -67 )
-shape = SubResource( 24 )
-
-[node name="Sprite" type="Sprite" parent="Door6"]
-position = Vector2( -259.978, -67.5316 )
-rotation = 1.56673
-scale = Vector2( 0.349708, 0.357134 )
-texture = ExtResource( 5 )
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Door6"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door6/StaticBody2D"]
-position = Vector2( -260, -67.5 )
-shape = SubResource( 26 )
-
 [node name="Key" type="Area2D" parent="." groups=["Key1"]]
 position = Vector2( -350, -127 )
 
@@ -394,4 +480,137 @@ position = Vector2( 3.05176e-05, 0 )
 scale = Vector2( 0.312499, 0.3125 )
 texture = ExtResource( 11 )
 
+[node name="BlueDoor" type="AnimatedSprite" parent="."]
+position = Vector2( -217, -72.121 )
+rotation = -1.5708
+scale = Vector2( 0.262467, 0.25 )
+frames = SubResource( 32 )
+animation = "New Anim"
+
+[node name="Door" type="Area2D" parent="BlueDoor" groups=["Door1"]]
+position = Vector2( -286.935, 868 )
+rotation = 1.5708
+scale = Vector2( 4, 4.19257 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlueDoor/Door"]
+position = Vector2( -260.25, -67 )
+shape = SubResource( 24 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BlueDoor/Door"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BlueDoor/Door/StaticBody2D"]
+position = Vector2( -260, -67.5 )
+shape = SubResource( 26 )
+
+[node name="VioletDoor" type="AnimatedSprite" parent="."]
+position = Vector2( -455.917, 229 )
+rotation = 3.63192e-06
+scale = Vector2( 0.252118, 0.25 )
+frames = SubResource( 38 )
+
+[node name="Door2" type="Area2D" parent="VioletDoor" groups=["Door2"]]
+position = Vector2( -287.047, 868.001 )
+rotation = 1.5708
+scale = Vector2( 4, 4.20078 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VioletDoor/Door2"]
+position = Vector2( -260.25, -67 )
+shape = SubResource( 24 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="VioletDoor/Door2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VioletDoor/Door2/StaticBody2D"]
+position = Vector2( -260, -67.5 )
+shape = SubResource( 26 )
+
+[node name="GreenDoor" type="AnimatedSprite" parent="."]
+position = Vector2( -659, 372.662 )
+rotation = 1.5708
+scale = Vector2( 0.256159, 0.25 )
+frames = SubResource( 44 )
+
+[node name="Door3" type="Area2D" parent="GreenDoor" groups=["Door3"]]
+position = Vector2( 279.626, -1216 )
+rotation = -1.5708
+scale = Vector2( 4, 4.15259 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GreenDoor/Door3"]
+position = Vector2( -260.25, -67 )
+shape = SubResource( 24 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GreenDoor/Door3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GreenDoor/Door3/StaticBody2D"]
+position = Vector2( -260, -67.5 )
+shape = SubResource( 26 )
+
+[node name="RedDoor" type="AnimatedSprite" parent="."]
+position = Vector2( -81.5008, 230 )
+rotation = 3.63191e-06
+scale = Vector2( 0.250655, 0.25 )
+frames = SubResource( 50 )
+
+[node name="Door4" type="Area2D" parent="RedDoor" groups=["Door4"]]
+position = Vector2( -286.356, 868.001 )
+rotation = 1.5708
+scale = Vector2( 4, 4.22676 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedDoor/Door4"]
+position = Vector2( -260.25, -67 )
+shape = SubResource( 24 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="RedDoor/Door4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RedDoor/Door4/StaticBody2D"]
+position = Vector2( -260, -67.5 )
+shape = SubResource( 26 )
+
+[node name="GoldDoor" type="AnimatedSprite" parent="."]
+position = Vector2( -88.2773, -233 )
+rotation = -3.14159
+scale = Vector2( 0.252534, 0.25 )
+frames = SubResource( 56 )
+
+[node name="Door5" type="Area2D" parent="GoldDoor" groups=["Door5"]]
+position = Vector2( 276.215, -1212 )
+rotation = -1.5708
+scale = Vector2( 4, 4.17107 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoldDoor/Door5"]
+position = Vector2( -260.25, -67 )
+shape = SubResource( 24 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="GoldDoor/Door5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoldDoor/Door5/StaticBody2D"]
+position = Vector2( -260, -67.5 )
+shape = SubResource( 26 )
+
+[node name="TealDoor" type="AnimatedSprite" parent="."]
+position = Vector2( 121, -47.2387 )
+rotation = -1.5708
+scale = Vector2( 0.256336, 0.25 )
+frames = SubResource( 62 )
+
+[node name="Door6" type="Area2D" parent="TealDoor" groups=["Door6"]]
+position = Vector2( -274.027, 864 )
+rotation = 1.5708
+scale = Vector2( 4, 4.10597 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TealDoor/Door6"]
+position = Vector2( -260.25, -67 )
+shape = SubResource( 24 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="TealDoor/Door6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TealDoor/Door6/StaticBody2D"]
+position = Vector2( -260, -67.5 )
+shape = SubResource( 26 )
+
 [connection signal="area_entered" from="Player/KeyHitbox" to="Player/KeyHitbox" method="_on_KeyHitbox_area_entered"]
+[connection signal="animation_finished" from="BlueDoor" to="Player/KeyHitbox" method="_on_BlueDoor_animation_finished"]
+[connection signal="animation_finished" from="VioletDoor" to="Player/KeyHitbox" method="_on_VioletDoor_animation_finished"]
+[connection signal="animation_finished" from="GreenDoor" to="Player/KeyHitbox" method="_on_GreenDoor_animation_finished"]
+[connection signal="animation_finished" from="RedDoor" to="Player/KeyHitbox" method="_on_RedDoor_animation_finished"]
+[connection signal="animation_finished" from="GoldDoor" to="Player/KeyHitbox" method="_on_GoldDoor_animation_finished"]
+[connection signal="animation_finished" from="TealDoor" to="Player/KeyHitbox" method="_on_TealDoor_animation_finished"]

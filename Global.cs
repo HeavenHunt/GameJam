@@ -10,4 +10,6 @@ public class Global : Node
 	public static bool key4_pickedUp = false;
 	public static bool key5_pickedUp = false;
 	public static bool key6_pickedUp = false;
+	
+	
 }
