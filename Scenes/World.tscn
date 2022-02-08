@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/MeleeEnemy.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/MeleeEnemy.cs" type="Script" id=3]
 [ext_resource path="res://Scenes/ProjectileEnemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Images/icon.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/DeathMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpriteFrames" id=2]
@@ -32,7 +33,7 @@ collision_mask = 6
 
 [node name="AnimatedSprite" parent="MeleeEnemy/EnemyBody" index="5"]
 rotation = 1.5708
-frame = 6
+frame = 5
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
@@ -51,7 +52,7 @@ scale = Vector2( 0.0864414, 0.0864414 )
 position = Vector2( 1005, 212 )
 
 [node name="AnimatedSprite" parent="ProjectileEnemy/EnemyBody" index="5"]
-frame = 5
+frame = 4
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ProjectileEnemy"]
 frames = SubResource( 2 )
@@ -74,6 +75,8 @@ scale = Vector2( 1, 11.96 )
 shape = SubResource( 1 )
 
 [node name="Pause" parent="." instance=ExtResource( 7 )]
+
+[node name="Death" parent="." instance=ExtResource( 6 )]
 
 [editable path="MeleeEnemy"]
 [editable path="Player"]

@@ -1,9 +1,12 @@
 using Godot;
 using System;
 
-public class PauseMenu : Control
+public class DeathMenu : Control
 {
-	private bool isPaused = false;
+	public bool isPaused = false;
+	public DeathMenu() {
+		isPaused = false;
+	}
 
 	public bool GetIsPaused() {
 		return isPaused;
@@ -15,17 +18,10 @@ public class PauseMenu : Control
 		Visible = isPaused;
 	}
 
-	public override void _UnhandledInput(InputEvent @event)
-	{
-		if (@event.IsActionPressed("pause")) {
-			SetIsPaused(!GetIsPaused());
-		}
+	public void PlayerDeath() {
+		SetIsPaused(true);
 	}
 
-	public void Resume_Button_Pressed() {
-		SetIsPaused(false);
-	}
-	
 	public void Restart_Button_Pressed() {
 		SetIsPaused(false);
 		GetTree().ReloadCurrentScene();
@@ -35,6 +31,3 @@ public class PauseMenu : Control
 		GetTree().Quit();
 	}
 }
-
-
-

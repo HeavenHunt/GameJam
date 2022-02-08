@@ -17,11 +17,11 @@ public class PlayerMovement : RigidBody2D
 	PackedScene bulletScene;
 	Control PauseMenu;
 
-    public override void _Ready()
-    {
-        bulletScene = GD.Load<PackedScene>("res://Scenes/Bullet.tscn");
+	public override void _Ready()
+	{
+		bulletScene = GD.Load<PackedScene>("res://Scenes/Bullet.tscn");
 		
-    }
+	}
 
 	public void GetInput()
 	{
@@ -49,7 +49,9 @@ public class PlayerMovement : RigidBody2D
 	{
 		if (health <= 0.0f)
 		{
-			QueueFree();
+			DeathMenu death = new DeathMenu();
+			death.isPaused = false;
+			death.PlayerDeath();
 		}
 		GetInput();
 		this.LinearVelocity = newVelocity;
@@ -57,15 +59,15 @@ public class PlayerMovement : RigidBody2D
 
 	// Handles input, used to fire bullet when left mouse button is clicked
 	public override void _UnhandledInput(InputEvent @event)
-    {
-        if (@event is InputEventMouseButton mouseEvent) {
-            if (mouseEvent.ButtonIndex == (int)ButtonList.Left && mouseEvent.Pressed) {
-                Bullet bullet = (Bullet)bulletScene.Instance();
-                bullet.Position = Position;
-                bullet.Rotation = Rotation;
-                GetParent().AddChild(bullet);
-                GetTree().SetInputAsHandled();
-            }
-        }
-    }
+	{
+		if (@event is InputEventMouseButton mouseEvent) {
+			if (mouseEvent.ButtonIndex == (int)ButtonList.Left && mouseEvent.Pressed) {
+				Bullet bullet = (Bullet)bulletScene.Instance();
+				bullet.Position = Position;
+				bullet.Rotation = Rotation;
+				GetParent().AddChild(bullet);
+				GetTree().SetInputAsHandled();
+			}
+		}
+	}
 }
