@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/PlayerMovement.cs" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -19,6 +19,9 @@ extents = Vector2( 12, 13.5 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 27.5, 25.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 28.5, 31.5813 )
 
 [node name="World" type="Node2D"]
 
@@ -113,17 +116,33 @@ position = Vector2( 31, -68 )
 current = true
 smoothing_enabled = true
 
-[node name="Key_Blue" parent="Actors" instance=ExtResource( 5 )]
+[node name="Keys" type="Node" parent="Actors"]
 
-[node name="Key_Green" parent="Actors" instance=ExtResource( 9 )]
+[node name="Key_Blue" parent="Actors/Keys" instance=ExtResource( 5 )]
 
-[node name="Key_Purple" parent="Actors" instance=ExtResource( 11 )]
+[node name="Key_Green" parent="Actors/Keys" instance=ExtResource( 9 )]
 
-[node name="Key_Red" parent="Actors" instance=ExtResource( 10 )]
+[node name="Key_Purple" parent="Actors/Keys" instance=ExtResource( 11 )]
 
-[node name="Key_Teal" parent="Actors" instance=ExtResource( 12 )]
+[node name="Key_Red" parent="Actors/Keys" instance=ExtResource( 10 )]
 
-[node name="Key_Yellow" parent="Actors" instance=ExtResource( 13 )]
+[node name="Key_Teal" parent="Actors/Keys" instance=ExtResource( 12 )]
+
+[node name="Key_Yellow" parent="Actors/Keys" instance=ExtResource( 13 )]
+
+[node name="Walls" type="Node" parent="Actors"]
+
+[node name="Wall" type="StaticBody2D" parent="Actors/Walls"]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 970, 345 )
+scale = Vector2( 1, 11.32 )
+
+[node name="Sprite" type="Sprite" parent="Actors/Walls/Wall"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actors/Walls/Wall"]
+position = Vector2( 1.5, -0.132511 )
+shape = SubResource( 4 )
 
 [connection signal="AddKey" from="Actors/Player" to="CanvasLayer/Control" method="_on_Player_AddKey"]
 [connection signal="UpdateHealth" from="Actors/Player" to="CanvasLayer/Control" method="_on_Player_UpdateHealth"]
