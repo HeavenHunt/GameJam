@@ -1,8 +1,7 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/MeleeEnemy.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scripts/MeleeEnemy.cs" type="Script" id=3]
 [ext_resource path="res://Scenes/ProjectileEnemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Images/icon.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/DeathMenu.tscn" type="PackedScene" id=6]
@@ -53,14 +52,12 @@ position = Vector2( 745, 746 )
 [node name="EnemyBody" parent="MeleeEnemy" index="0"]
 position = Vector2( 150, 90 )
 collision_mask = 5
-script = ExtResource( 3 )
 
-[node name="RayCast2D" parent="MeleeEnemy/EnemyBody" index="4"]
+[node name="RayCast2D" parent="MeleeEnemy/EnemyBody" index="3"]
 collision_mask = 6
 
-[node name="AnimatedSprite" parent="MeleeEnemy/EnemyBody" index="5"]
-rotation = 1.5708
-frame = 0
+[node name="AnimatedSprite" parent="MeleeEnemy/EnemyBody" index="4"]
+frame = 3
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 
@@ -78,8 +75,8 @@ scale = Vector2( 0.0864414, 0.0864414 )
 [node name="EnemyBody" parent="ProjectileEnemy" index="0"]
 position = Vector2( 1005, 212 )
 
-[node name="AnimatedSprite" parent="ProjectileEnemy/EnemyBody" index="5"]
-frame = 6
+[node name="AnimatedSprite" parent="ProjectileEnemy/EnemyBody" index="4"]
+frame = 2
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ProjectileEnemy"]
 frames = SubResource( 2 )

@@ -21,12 +21,8 @@ public class PlayerMovement : RigidBody2D
 	public override void _Ready()
 	{
 		bulletScene = GD.Load<PackedScene>("res://Scenes/Bullet.tscn");
-<<<<<<< Updated upstream
 		DeathMenu = GetNode<Control>("/root/World/Death/Control");
 		Connect("PlayerDeath", DeathMenu, "PlayerDeath");
-=======
-		
->>>>>>> Stashed changes
 	}
 
 	public void GetInput()
