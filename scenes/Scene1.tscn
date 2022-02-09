@@ -22,7 +22,9 @@ extents = Vector2( 27.5, 25.5 )
 
 [node name="World" type="Node2D"]
 
-[node name="Control" type="Control" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 6 )
@@ -30,7 +32,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="UI_Container" type="VBoxContainer" parent="Control"]
+[node name="UI_Container" type="VBoxContainer" parent="CanvasLayer/Control"]
 margin_right = 414.0
 margin_bottom = 136.0
 rect_min_size = Vector2( 10, 5 )
@@ -40,14 +42,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HealthBar" type="TextureRect" parent="Control/UI_Container"]
+[node name="HealthBar" type="TextureRect" parent="CanvasLayer/Control/UI_Container"]
 margin_right = 414.0
 margin_bottom = 100.0
 rect_min_size = Vector2( 200, 100 )
 texture = ExtResource( 8 )
 expand = true
 
-[node name="HealthProgress" type="TextureProgress" parent="Control/UI_Container/HealthBar"]
+[node name="HealthProgress" type="TextureProgress" parent="CanvasLayer/Control/UI_Container/HealthBar"]
 anchor_left = 0.173913
 anchor_top = 0.57
 anchor_right = 6.28502
@@ -62,12 +64,12 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="KeyContainer" type="HBoxContainer" parent="Control/UI_Container"]
+[node name="KeyContainer" type="HBoxContainer" parent="CanvasLayer/Control/UI_Container"]
 margin_top = 104.0
 margin_right = 414.0
 margin_bottom = 135.0
 
-[node name="KeyLabel" type="Label" parent="Control/UI_Container/KeyContainer"]
+[node name="KeyLabel" type="Label" parent="CanvasLayer/Control/UI_Container/KeyContainer"]
 margin_right = 34.0
 margin_bottom = 31.0
 size_flags_vertical = 0
@@ -106,6 +108,11 @@ shape = SubResource( 2 )
 [node name="Sprite" type="Sprite" parent="Actors/Player/RigidBody2D"]
 texture = ExtResource( 2 )
 
+[node name="Camera2D" type="Camera2D" parent="Actors/Player/RigidBody2D"]
+position = Vector2( 31, -68 )
+current = true
+smoothing_enabled = true
+
 [node name="Key_Blue" parent="Actors" instance=ExtResource( 5 )]
 
 [node name="Key_Green" parent="Actors" instance=ExtResource( 9 )]
@@ -118,6 +125,6 @@ texture = ExtResource( 2 )
 
 [node name="Key_Yellow" parent="Actors" instance=ExtResource( 13 )]
 
-[connection signal="AddKey" from="Actors/Player" to="Control" method="_on_Player_AddKey"]
-[connection signal="UpdateHealth" from="Actors/Player" to="Control" method="_on_Player_UpdateHealth"]
+[connection signal="AddKey" from="Actors/Player" to="CanvasLayer/Control" method="_on_Player_AddKey"]
+[connection signal="UpdateHealth" from="Actors/Player" to="CanvasLayer/Control" method="_on_Player_UpdateHealth"]
 [connection signal="body_entered" from="Actors/Player/RigidBody2D" to="Actors/Player" method="_on_RigidBody2D_body_entered"]

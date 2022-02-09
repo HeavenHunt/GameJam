@@ -8,19 +8,19 @@
     ".NETFramework,Version=v4.7.2": []
   },
   "packageFolders": {
-    "C:\\Users\\jo660\\.nuget\\packages\\": {}
+    "C:\\Users\\BrantonJohn\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\1_GodotProjects\\heavenHunt\\GameJam\\Project_0.csproj",
+      "projectUniqueName": "C:\\0_GodotProjects\\HeavenHunt\\GameJam\\Project_0.csproj",
       "projectName": "Project_0",
-      "projectPath": "C:\\1_GodotProjects\\heavenHunt\\GameJam\\Project_0.csproj",
-      "packagesPath": "C:\\Users\\jo660\\.nuget\\packages\\",
-      "outputPath": "C:\\1_GodotProjects\\heavenHunt\\GameJam\\.mono\\temp\\obj\\",
+      "projectPath": "C:\\0_GodotProjects\\HeavenHunt\\GameJam\\Project_0.csproj",
+      "packagesPath": "C:\\Users\\BrantonJohn\\.nuget\\packages\\",
+      "outputPath": "C:\\0_GodotProjects\\HeavenHunt\\GameJam\\.mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jo660\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\BrantonJohn\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
