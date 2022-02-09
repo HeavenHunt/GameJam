@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/ProjectileEnemy.cs" type="Script" id=1]
-[ext_resource path="res://MagentaBlobWalkCycle.png" type="Texture" id=3]
+[ext_resource path="res://Images/MagentaBlobWalkCycle.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 12.0505
@@ -9,44 +9,44 @@ radius = 12.0505
 [sub_resource type="CircleShape2D" id=4]
 radius = 190.129
 
-[sub_resource type="AtlasTexture" id=5]
+[sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 625, 609 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 625, 0, 625, 609 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 1250, 0, 625, 609 )
 
-[sub_resource type="AtlasTexture" id=8]
+[sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 0, 609, 625, 609 )
 
-[sub_resource type="AtlasTexture" id=9]
+[sub_resource type="AtlasTexture" id=18]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 625, 609, 625, 609 )
 
-[sub_resource type="AtlasTexture" id=10]
+[sub_resource type="AtlasTexture" id=19]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 1250, 609, 625, 609 )
 
-[sub_resource type="AtlasTexture" id=11]
+[sub_resource type="AtlasTexture" id=20]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 0, 1218, 625, 609 )
 
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
+"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
 "loop": true,
 "name": "default",
 "speed": 18.0

@@ -1,7 +1,2 @@
-<<<<<<< Updated upstream
-﻿64201
-C:/Users/PribylLogan/OneDrive - University of Wisconsin-Stout/Desktop/Godot_v3.4.2-stable_mono_win64/Godot_v3.4.2-stable_mono_win64.exe
-=======
-﻿61660
+﻿61497
 C:/Users/HestwoodDylan/Downloads/Godot_v3.4.2-stable_mono_win64/Godot_v3.4.2-stable_mono_win64/Godot_v3.4.2-stable_mono_win64.exe
->>>>>>> Stashed changes
