@@ -1,22 +1,40 @@
 using Godot;
 using System;
-
+using System.Collections.Generic;
 public class BaseEnemy : RigidBody2D
 {
 	public RigidBody2D Player;
 	//protected RayCast2D SightLine;
-	public int Health = 10;
+	public int Health = 5;
 	[Export] public float AttackPower = 1.0f;
-	[Export] public float MovementSpeed = 1.0f;
+	[Export] public float MovementSpeed = 50.0f;
 	public bool PlayerFound = false;
 	public bool InAttackRange = false;
 	public Timer AttackCooldown;
 	public bool AttackReady = true;
 	[Export] public float TimeBetweenAttacks = 0.5f;
-	[Signal] protected delegate void PlayerDamaged(float DamageTaken);
-	protected virtual void _on_EnemyBody_body_entered(object body){	}
+	[Signal] protected delegate void PlayerDamaged(float DamageTaken);	
+	
+	
+	protected virtual void _on_EnemyBody_body_entered(Node body){	}
+	protected virtual void _on_EnemyBody_body_exited(Node body) {   }
+	protected void _on_HitBox_area_entered(Node area)
+	{
+		if(area.Name == "BulletArea2D")
+		{
+			Health -= 1;
+		}
+	}
 
-	protected virtual void _on_EnemyBody_body_exited(object body){ }
+
+	private void _on_HitBox_area_exited(Node area)
+	{
+		// Replace with function body.
+		
+	}
+
+
+
 
 	protected virtual void AttackPlayer(){ }
 	protected virtual void _on_Timer_timeout(){ }
@@ -27,11 +45,11 @@ public class BaseEnemy : RigidBody2D
 		{
 			PlayerFound = true;
 		}
-		GD.Print(body.ToString());
+		//GD.Print(body.ToString());
 	}
 	protected virtual void _on_DetectionArea_body_exited(object body)
 	{
-		GD.Print("Out of Detection Range");
+		//GD.Print("Out of Detection Range");
 		PlayerFound = false;
 	}
 
@@ -40,19 +58,19 @@ public class BaseEnemy : RigidBody2D
 	{
 		Player = GetNode<RigidBody2D>("/root/World/Player/PlayerBody");
 		Connect("PlayerDamaged", Player, "_on_EnemyBody_PlayerDamaged");
-
-		//SightLine will not collide with areas
-
-		//GD.Print(Player.ToString());
+		GD.Print(Player.ToString());
 	}
 
 	// called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _PhysicsProcess(float delta){
-		//SightLine.Rotation = GetAngleTo(Player.GlobalPosition);
-		//SightLine.CastTo = Player.GlobalPosition-SightLine.Position;
 
+	public override void _PhysicsProcess(float delta)
+	{
+		if (Health <= 0)
+		{
+			//death animation code
+			//delay
+			QueueFree();
+		}
 	}
 }
-
-
 

@@ -3,64 +3,74 @@ using System;
 
 public class ProjectileEnemy : BaseEnemy
 {
+	PackedScene MonsterBulletScene;
 	
-	// Declare member variables here. Examples:
-	// private int a = 2;
-	// private string b = "text";
-	
-	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		base._Ready();
-		if(Player == null)
-		{
-			Player = GetNode<RigidBody2D>("/root/World/Player/PlayerBody");
-		}
-		//SightLine = GetNode<RayCast2D>("/root/World/ProjectileEnemy/EnemyBody/RayCast2D");
-		AttackCooldown = GetNode<Timer>("/root/World/ProjectileEnemy/EnemyBody/AttackTimer");
 		
+		base._Ready();
+		MonsterBulletScene = GD.Load<PackedScene>("res://Scenes/MonsterBullet.tscn");
+		AttackCooldown = GetNode<Timer>("/root/World/ProjectileEnemy/EnemyBody/AttackTimer");
 	}
 
-  // Called every frame. 'delta' is the elapsed time since the previous frame.
+
 	public override void _PhysicsProcess(float delta)
 	{
-		
-		// Raycast pointed toward player, if it reaches the player without hitting anything
+		base._PhysicsProcess(delta);
+		while (AttackReady == true && InAttackRange == true)
+		{
+			//Fires bullet at player while they are within range and attack is off of cooldown
+			AttackPlayer();
+
+		}
+		if (PlayerFound == true && InAttackRange == false)
+		{
+			LinearVelocity = Player.Position - this.Position;
+			Position += LinearVelocity.Clamped(5.0f) * delta * MovementSpeed;
+			this.LookAt(Player.Position);
+			
+		}
 		// Larger Detection Bubble that has maximum sight distance
 		// when slime gets within a certain range of player, it will begin firing at them
 		// it will retreat if the player gets too close, but it will continue firing as long as the player is within line of sight
 	}
-	protected override void _on_EnemyBody_body_entered(object body)
+	protected override void _on_EnemyBody_body_entered(Node body)
 	{
-		//base._on_EnemyBody_body_entered(body);
+		
 	}
 
-	protected override void _on_EnemyBody_body_exited(object body)
+	protected override void _on_EnemyBody_body_exited(Node body)
 	{
-		//base._on_EnemyBody_body_exited(body);
+
 	}
 
 	protected override void AttackPlayer()
 	{
-		if(InAttackRange == true)
-		{
-
-		}
+		//EmitSignal(nameof(PlayerDamaged), AttackPower);
+		//GD.Print("Health Reduced");
+		//AttackCooldown.Start(TimeBetweenAttacks);
+		//AttackReady = false;
+		MonsterBullet monsterbullet = (MonsterBullet)MonsterBulletScene.Instance();
+		monsterbullet.Position = Position;
+		monsterbullet.Rotation = Rotation;
+		GetParent().AddChild(monsterbullet);
 		//base.AttackPlayer();
 	}
-
+	
 	protected override void _on_Timer_timeout()
 	{
-		//base._on_Timer_timeout();
+		AttackReady = true;
 	}
 
 	protected override void _on_DetectionArea_body_entered(object body)
 	{
 		base._on_DetectionArea_body_entered(body);
+		
 	}
 
 	protected override void _on_DetectionArea_body_exited(object body)
 	{
 		base._on_DetectionArea_body_exited(body);
+		
 	}
 }

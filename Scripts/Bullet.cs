@@ -24,9 +24,21 @@ public class Bullet : Node2D
 		}
 	}
 
+<<<<<<< Updated upstream
 	private void OnCollision(Node with) {
 		if (with.Name != "PlayerBody" && with.Name != "BulletArea2D" && with.Name != "DetectionArea") {
 			QueueFree();
+=======
+	protected void OnCollision(Node with) {
+
+		if (with.Name != "PlayerBody" && with.Name != "BulletArea2D" && with.Name != "DetectionArea") {
+			GD.Print(with.Name);
+			if(with.Name == "HitBox")
+			{
+				QueueFree();
+			}
+			
+>>>>>>> Stashed changes
 		}
 	}
 }

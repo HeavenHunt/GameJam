@@ -1,62 +1,64 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Scripts/BaseEnemy.cs" type="Script" id=1]
-[ext_resource path="res://Images/RedSlime04x.png" type="Texture" id=2]
-[ext_resource path="res://Images/RedBlobWalkCycle.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/MeleeEnemy.cs" type="Script" id=1]
+[ext_resource path="res://RedBlobWalkCycle.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 12.0505
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 371.005
+radius = 206.0
 
-[sub_resource type="AtlasTexture" id=13]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 625, 609 )
-
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=5]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 625, 0, 625, 609 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 1250, 0, 625, 609 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 0, 609, 625, 609 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 625, 609, 625, 609 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 1250, 609, 625, 609 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 0, 1218, 625, 609 )
 
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 625, 609 )
+
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ) ],
 "loop": true,
 "name": "default",
 "speed": 18.0
 } ]
 
+[sub_resource type="CircleShape2D" id=13]
+radius = 74.1687
+
 [node name="MeleeEnemy" type="Node"]
 
 [node name="EnemyBody" type="RigidBody2D" parent="."]
-position = Vector2( 590, 309 )
+position = Vector2( 882, 505 )
 collision_layer = 2
 input_pickable = true
 mode = 2
@@ -73,10 +75,6 @@ __meta__ = {
 scale = Vector2( 5.07262, 5.13704 )
 shape = SubResource( 2 )
 
-[node name="Sprite" type="Sprite" parent="EnemyBody"]
-scale = Vector2( 0.194125, 0.199386 )
-texture = ExtResource( 2 )
-
 [node name="DetectionArea" type="Area2D" parent="EnemyBody"]
 collision_layer = 8
 
@@ -90,13 +88,20 @@ wait_time = 0.3
 enabled = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="EnemyBody"]
+rotation = 1.5708
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 12 )
 frame = 4
 playing = true
+
+[node name="HitBox" type="Area2D" parent="EnemyBody"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/HitBox"]
+shape = SubResource( 13 )
 
 [connection signal="body_entered" from="EnemyBody" to="EnemyBody" method="_on_EnemyBody_body_entered"]
 [connection signal="body_exited" from="EnemyBody" to="EnemyBody" method="_on_EnemyBody_body_exited"]
 [connection signal="body_entered" from="EnemyBody/DetectionArea" to="EnemyBody" method="_on_DetectionArea_body_entered"]
 [connection signal="body_exited" from="EnemyBody/DetectionArea" to="EnemyBody" method="_on_DetectionArea_body_exited"]
 [connection signal="timeout" from="EnemyBody/AttackTimer" to="EnemyBody" method="_on_Timer_timeout"]
+[connection signal="area_entered" from="EnemyBody/HitBox" to="EnemyBody" method="_on_HitBox_area_entered"]
