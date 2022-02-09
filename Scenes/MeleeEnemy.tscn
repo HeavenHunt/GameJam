@@ -92,7 +92,7 @@ enabled = true
 [node name="AnimatedSprite" type="AnimatedSprite" parent="EnemyBody"]
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 12 )
-frame = 3
+frame = 1
 playing = true
 
 [connection signal="body_entered" from="EnemyBody" to="EnemyBody" method="_on_EnemyBody_body_entered"]

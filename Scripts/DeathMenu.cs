@@ -4,12 +4,12 @@ using System;
 public class DeathMenu : Control
 {
 	public bool isPaused = false;
-	public DeathMenu() {
-		isPaused = false;
-	}
+	[Signal] protected delegate void AllowPauseMenu();
+	private Control pauseMenu;
 
-	public bool GetIsPaused() {
-		return isPaused;
+	public override void _Ready() {
+		pauseMenu = GetNode<Control>("/root/World/Pause/Control");
+		Connect("AllowPauseMenu", pauseMenu, "AllowPauseMenu");
 	}
 
 	public void SetIsPaused(bool value) {
@@ -18,12 +18,14 @@ public class DeathMenu : Control
 		Visible = isPaused;
 	}
 
-	public void PlayerDeath() {
+	private void PlayerDeath() {
 		SetIsPaused(true);
+		EmitSignal(nameof(AllowPauseMenu), false);
 	}
 
 	public void Restart_Button_Pressed() {
 		SetIsPaused(false);
+		EmitSignal(nameof(AllowPauseMenu), true);
 		GetTree().ReloadCurrentScene();
 	}
 

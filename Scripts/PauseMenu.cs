@@ -4,6 +4,7 @@ using System;
 public class PauseMenu : Control
 {
 	private bool isPaused = false;
+	private bool allowPause = true;
 
 	public bool GetIsPaused() {
 		return isPaused;
@@ -15,9 +16,15 @@ public class PauseMenu : Control
 		Visible = isPaused;
 	}
 
+	public void AllowPauseMenu(bool value) {
+		isPaused = !value;
+		GetTree().Paused = !value;
+		allowPause = value;
+	}
+
 	public override void _UnhandledInput(InputEvent @event)
 	{
-		if (@event.IsActionPressed("pause")) {
+		if (@event.IsActionPressed("pause") && allowPause) {
 			SetIsPaused(!GetIsPaused());
 		}
 	}
