@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/MagentaBlobWalkCycle.png-93c9d6166702d7dad428f59ad302ac79.stex"
+path="res://.import/MagentaBlobWalkCycle.png-228b761b450bbc4936aecf3772f85561.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://MagentaBlobWalkCycle.png"
-dest_files=[ "res://.import/MagentaBlobWalkCycle.png-93c9d6166702d7dad428f59ad302ac79.stex" ]
+source_file="res://Images/MagentaBlobWalkCycle.png"
+dest_files=[ "res://.import/MagentaBlobWalkCycle.png-228b761b450bbc4936aecf3772f85561.stex" ]
 
 [params]
 

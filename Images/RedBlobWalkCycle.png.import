@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/RedBlobWalkCycle.png-f0ca783270501ad669e5f8cc561d1312.stex"
+path="res://.import/RedBlobWalkCycle.png-1ab16ddd2800b27a45be7096d0675c03.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://RedBlobWalkCycle.png"
-dest_files=[ "res://.import/RedBlobWalkCycle.png-f0ca783270501ad669e5f8cc561d1312.stex" ]
+source_file="res://Images/RedBlobWalkCycle.png"
+dest_files=[ "res://.import/RedBlobWalkCycle.png-1ab16ddd2800b27a45be7096d0675c03.stex" ]
 
 [params]
 
