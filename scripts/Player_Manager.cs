@@ -13,6 +13,8 @@ public class Player : Node2D
     {
         //stats
         currentHealth = maxHealth;
+        Connect("UpdateHealth",GetNode<Control>("/root/World/UI_CanvasLayer/Control"),"_on_Player_UpdateHealth");
+        Connect("AddKey",GetNode<Control>("/root/World/UI_CanvasLayer/Control"),"_on_Player_AddKey");
         EmitSignal("UpdateHealth",currentHealth,maxHealth);
     }
 

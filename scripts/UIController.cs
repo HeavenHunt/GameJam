@@ -10,7 +10,7 @@ public class UIController : Control
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        healthProgress = GetNode<TextureProgress>("UI_Container/HealthBar/HealthProgress");
+        healthProgress = GetNode<TextureProgress>("UI_Container/HealthBarBacking/HealthProgress");
         keyContainer = GetNode<HBoxContainer>("UI_Container/KeyContainer");
         keyScene = (PackedScene)GD.Load("res://scenes/Keys/Key_UI.tscn");
     }
