@@ -3,17 +3,18 @@ using System;
 
 public class MeleeEnemy : BaseEnemy
 {
-	protected override void _on_EnemyBody_body_entered(object body)
+	protected override void _on_EnemyBody_body_entered(Node body)
 	{
+		base._on_EnemyBody_body_entered(body);
 		if (body == Player)
 		{
 			GD.Print("Attack Distance Reached");
 			InAttackRange = true;
 		}
-
+		
 	}
 
-	protected override void _on_EnemyBody_body_exited(object body)
+	protected override void _on_EnemyBody_body_exited(Node body)
 	{
 		if (body == Player)
 		{
@@ -39,8 +40,6 @@ public class MeleeEnemy : BaseEnemy
 	{
 		base._Ready();
 		AttackCooldown = GetNode<Timer>("/root/World/MeleeEnemy/EnemyBody/AttackTimer");
-		//SightLine = GetNode<RayCast2D>("/root/World/MeleeEnemy/EnemyBody/RayCast2D");
-
 	}
 
 	// called every frame. 'delta' is the elapsed time since the previous frame.
@@ -54,15 +53,18 @@ public class MeleeEnemy : BaseEnemy
 		}
 		if (PlayerFound == true)
 		{
-			this.LookAt(Player.Position);
 			LinearVelocity = Player.Position - this.Position;
+			Position += LinearVelocity.Clamped(5.0f) * delta * MovementSpeed;
+			this.LookAt(Player.Position);
+
 		}
 		else
 		{
-			//replace with patrol/idle code
-			//this.LookAt(GetLocalMousePosition());
+			
 			//LookAt(GetGlobalMousePosition());
 			//Position += LinearVelocity.Clamped(100.0f) * delta * MovementSpeed;
 		}
 	}
 }
+
+
