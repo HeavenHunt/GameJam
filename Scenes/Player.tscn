@@ -1,11 +1,45 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/PlayerMovement.cs" type="Script" id=1]
 [ext_resource path="res://Images/LooueiesOneFrameIdleTempQuestionMark4x.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/UI_scripts/Player_Manager.cs" type="Script" id=3]
+[ext_resource path="res://Images/LuisHurtAnimation.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 12.0503
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 775, 802 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 796, 880 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 796, 0, 796, 880 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 880, 796, 880 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "Hurt Anim",
+"speed": 20.0
+} ]
 
 [node name="Player" type="Node"]
 script = ExtResource( 3 )
@@ -21,11 +55,6 @@ __meta__ = {
 }
 speed = 300
 
-[node name="Sprite" type="Sprite" parent="PlayerBody"]
-rotation = 1.5708
-scale = Vector2( 0.09, 0.09 )
-texture = ExtResource( 2 )
-
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="PlayerBody"]
 scale = Vector2( 3.65135, 3.55979 )
 shape = SubResource( 3 )
@@ -33,4 +62,11 @@ shape = SubResource( 3 )
 [node name="Camera2D" type="Camera2D" parent="PlayerBody"]
 current = true
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="PlayerBody"]
+rotation = 1.5708
+scale = Vector2( 0.086, 0.086 )
+frames = SubResource( 8 )
+playing = true
+
 [connection signal="body_entered" from="PlayerBody" to="." method="_on_PlayerBody_body_entered"]
+[connection signal="animation_finished" from="PlayerBody/AnimatedSprite" to="PlayerBody" method="_on_AnimatedSprite_animation_finished"]

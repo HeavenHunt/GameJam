@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/MeleeEnemy.cs" type="Script" id=1]
+[ext_resource path="res://Images/RedSlimeDeathRedux.png" type="Texture" id=2]
 [ext_resource path="res://Images/RedBlobWalkCycle.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=2]
@@ -44,12 +45,37 @@ flags = 4
 atlas = ExtResource( 3 )
 region = Rect2( 0, 1218, 625, 609 )
 
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 1698, 1602 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1698, 0, 1698, 1602 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 1602, 1698, 1602 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1698, 1602, 1698, 1602 )
+
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
 "frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
 "loop": true,
 "name": "default",
 "speed": 18.0
+}, {
+"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"loop": true,
+"name": "Death Anim",
+"speed": 10.0
 } ]
 
 [sub_resource type="CircleShape2D" id=13]
@@ -104,4 +130,5 @@ shape = SubResource( 13 )
 [connection signal="body_entered" from="EnemyBody/DetectionArea" to="EnemyBody" method="_on_DetectionArea_body_entered"]
 [connection signal="body_exited" from="EnemyBody/DetectionArea" to="EnemyBody" method="_on_DetectionArea_body_exited"]
 [connection signal="timeout" from="EnemyBody/AttackTimer" to="EnemyBody" method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="EnemyBody/AnimatedSprite" to="EnemyBody" method="_on_AnimatedSprite_animation_finished"]
 [connection signal="area_entered" from="EnemyBody/HitBox" to="EnemyBody" method="_on_HitBox_area_entered"]

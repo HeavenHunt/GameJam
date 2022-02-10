@@ -39,32 +39,28 @@ public class MeleeEnemy : BaseEnemy
 	public override void _Ready()
 	{
 		base._Ready();
-		AttackCooldown = GetNode<Timer>("/root/World/MeleeEnemy/EnemyBody/AttackTimer");
 	}
 
 	// called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(float delta)
 	{
 		base._PhysicsProcess(delta);
-		while (AttackReady == true && InAttackRange == true)
+		if (AnimSprite.Animation == "default")
 		{
-			AttackPlayer();
-			
-		}
-		if (PlayerFound == true)
-		{
-			LinearVelocity = Player.Position - this.Position;
-			Position += LinearVelocity.Clamped(5.0f) * delta * MovementSpeed;
-			this.LookAt(Player.Position);
-
-		}
-		else
-		{
-			
-			//LookAt(GetGlobalMousePosition());
-			//Position += LinearVelocity.Clamped(100.0f) * delta * MovementSpeed;
+			while (AttackReady == true && InAttackRange == true)
+			{
+				AttackPlayer();
+			}
+			if (PlayerFound == true)
+			{
+				LinearVelocity = Player.Position - this.Position;
+				Position += LinearVelocity.Clamped(5.0f) * delta * MovementSpeed;
+				this.LookAt(Player.Position);
+			}
 		}
 	}
 }
+
+
 
 

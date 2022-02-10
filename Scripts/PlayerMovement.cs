@@ -8,10 +8,21 @@ public class PlayerMovement : RigidBody2D
 	[Signal] protected delegate void PlayerDeath();
 	public Vector2 newVelocity = new Vector2();
 	public bool isPaused = false;
+	public AnimatedSprite PlayerSprite;
+	private bool PlayerHurtFinished = false;
 	private void _on_EnemyBody_PlayerDamaged(float DamageTaken)
 	{
+		PlayerSprite.Play("Hurt Anim");
 		health -= DamageTaken;
 		GD.Print("Damage Taken Successfully");
+	}
+
+	private void _on_AnimatedSprite_animation_finished()
+	{
+		if (PlayerSprite.Animation == "Hurt Anim")
+		{
+			PlayerSprite.Play("default");
+		}
 	}
 
 	// Scene Variables
@@ -20,6 +31,7 @@ public class PlayerMovement : RigidBody2D
 
 	public override void _Ready()
 	{
+		PlayerSprite = GetNode<AnimatedSprite>("AnimatedSprite");
 		bulletScene = GD.Load<PackedScene>("res://Scenes/Bullet.tscn");
 		DeathMenu = GetNode<Control>("/root/World/Death/Control");
 		Connect("PlayerDeath", DeathMenu, "PlayerDeath");
@@ -74,3 +86,5 @@ public class PlayerMovement : RigidBody2D
 		}
 	}
 }
+
+
