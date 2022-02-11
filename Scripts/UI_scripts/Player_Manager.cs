@@ -73,10 +73,6 @@ public class Player_Manager : Node2D
 			currentHealth = 0;
 
 		EmitSignal("UpdateHealth",currentHealth, maxHealth);
-
-		//play audio
-		audioPlayer.Stream = GD.Load<AudioStream>("res://Audio/hurt_sound.wav");
-		audioPlayer.Play();
 	}
 
 }

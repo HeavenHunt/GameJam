@@ -81,9 +81,9 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=13]
 radius = 74.1687
 
-[node name="MeleeEnemy" type="Node2D" groups=["Enemy"]]
+[node name="MeleeEnemy" type="Node"]
 
-[node name="EnemyBody" type="RigidBody2D" parent="." groups=["Enemy"]]
+[node name="EnemyBody" type="RigidBody2D" parent="."]
 position = Vector2( 882, 505 )
 collision_layer = 2
 input_pickable = true
@@ -117,11 +117,7 @@ enabled = true
 rotation = 1.5708
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 12 )
-<<<<<<< Updated upstream
 frame = 4
-=======
-frame = 6
->>>>>>> Stashed changes
 playing = true
 
 [node name="HitBox" type="Area2D" parent="EnemyBody"]

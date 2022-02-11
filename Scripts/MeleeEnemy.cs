@@ -47,11 +47,11 @@ public class MeleeEnemy : BaseEnemy
 		base._PhysicsProcess(delta);
 		if (AnimSprite.Animation == "default")
 		{
-			while (AttackReady && InAttackRange)
+			while (AttackReady == true && InAttackRange == true)
 			{
 				AttackPlayer();
 			}
-			if (PlayerFound)
+			if (PlayerFound == true)
 			{
 				LinearVelocity = Player.Position - this.Position;
 				Position += LinearVelocity.Clamped(5.0f) * delta * MovementSpeed;

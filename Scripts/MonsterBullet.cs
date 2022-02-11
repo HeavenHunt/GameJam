@@ -1,10 +1,12 @@
 using Godot;
 using System;
 
-public class MonsterBullet : Node2D
+public class MonsterBullet : Bullet
 {
-	public float Range = 300;
-	protected float distanceTravelled = 0;
+	// Declare member variables here. Examples:
+	// private int a = 2;
+	// private string b = "text";
+
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -13,7 +15,7 @@ public class MonsterBullet : Node2D
 		area.Connect("body_entered", this, "OnCollision");
 	}
 
-	protected void OnCollision(Node with)
+	new protected void OnCollision(Node with)
 	{
 		if (with.Name != "EnemyBody" && with.Name != "BulletArea2D" && with.Name != "DetectionArea" && with.Name != "HitBox")
 		{
@@ -25,16 +27,9 @@ public class MonsterBullet : Node2D
 
 		}
 	}
-	public override void _Process(float delta)
-	{
-		
-		float speed = 300;
-		float moveAmount = speed * delta;
-		Position += Transform.x.Normalized() * moveAmount;
-		distanceTravelled += moveAmount;
-		if (distanceTravelled > Range)
-		{
-			QueueFree();
-		}
-	}
+	//  // Called every frame. 'delta' is the elapsed time since the previous frame.
+	//  public override void _Process(float delta)
+	//  {
+	//      
+	//  }
 }
