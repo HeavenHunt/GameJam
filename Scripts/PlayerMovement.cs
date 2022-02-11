@@ -36,6 +36,7 @@ public class PlayerMovement : RigidBody2D
 		bulletScene = GD.Load<PackedScene>("res://Scenes/Bullet.tscn");
 		DeathMenu = GetNode<Control>("/root/World/Death/Control");
 		Connect("PlayerDeath", DeathMenu, "PlayerDeath");
+		//Connect("body_entered",GetParent(),"_on_PlayerBody_body_entered");
 	}
 
 	public void GetInput()

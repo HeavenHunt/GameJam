@@ -32,8 +32,8 @@ public class Player_Manager : Node
 	}
 
 	public void _on_PlayerBody_body_entered(Node body){
-		//GD.Print(body.Name);
-		if (body.Name == "Enemy")
+		//GD.Print("_on_PlayerBody_body_enter called!");
+		if (body.IsInGroup("Enemy"))
 			TakeDamage(1f);
 		if (body.IsInGroup("Key")){
 			EmitSignal("AddKey", body);

@@ -17,6 +17,7 @@ public class UIController : Control
 
     public void _on_Player_UpdateHealth(float healthCurrent, float healthMax){
         //TODO this causes crashing, null reference error, need to fix
+        GD.Print("UIController _on_Player_UpdateHealth called from signal!");
         //healthProgress.MaxValue = healthMax;
         //healthProgress.Value = healthCurrent;
     }
