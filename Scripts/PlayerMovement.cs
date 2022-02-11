@@ -11,7 +11,6 @@ public class PlayerMovement : RigidBody2D
 	public AnimatedSprite PlayerSprite;
 	private AudioStreamPlayer2D combatAudioPlayer;
 	private bool PlayerHurtFinished = false;
-	private bool bulletFired = true;
 	private void _on_EnemyBody_PlayerDamaged(float DamageTaken)
 	{
 		PlayerSprite.Play("Hurt Anim");

@@ -9,7 +9,7 @@
 [ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/UI/UI_CanvasLayer.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Keys/Key_Green.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Keys/Key_Purple.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Keys/Key_Violet.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Keys/Key_Red.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Keys/Key_Teal.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Keys/Key_Yellow.tscn" type="PackedScene" id=13]
@@ -28,6 +28,7 @@ animations = [ {
 [node name="World" type="Node"]
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -1400 )
 
 [node name="Keys" type="Node" parent="."]
 
@@ -37,7 +38,7 @@ position = Vector2( 345, 321 )
 [node name="Key_Green" parent="Keys" instance=ExtResource( 9 )]
 position = Vector2( 345, 321 )
 
-[node name="Key_Purple" parent="Keys" instance=ExtResource( 10 )]
+[node name="Key_Violet" parent="Keys" instance=ExtResource( 10 )]
 position = Vector2( 345, 321 )
 
 [node name="Key_Red" parent="Keys" instance=ExtResource( 11 )]
@@ -78,7 +79,7 @@ position = Vector2( 1357, 169 )
 MovementSpeed = 21.0
 
 [node name="AnimatedSprite" parent="ProjectileEnemy/EnemyBody" index="4"]
-frame = 2
+frame = 3
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ProjectileEnemy"]
 frames = SubResource( 2 )

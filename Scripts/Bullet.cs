@@ -32,7 +32,6 @@ public class Bullet : Node2D
 			{
 				QueueFree();
 			}
-			
 		}
 	}
 }
