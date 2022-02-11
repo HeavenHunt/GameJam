@@ -22,7 +22,12 @@ public class PlayerMovement : RigidBody2D
 	{
 		if (PlayerSprite.Animation == "Hurt Anim")
 		{
-			PlayerSprite.Play("default");
+			if(this.LinearVelocity.Length()>= 20.0)
+			{
+				PlayerSprite.Play("walking");
+			}
+			else
+				PlayerSprite.Play("default");
 		}
 	}
 
@@ -71,6 +76,12 @@ public class PlayerMovement : RigidBody2D
 		else {
 			GetInput();
 			this.LinearVelocity = newVelocity;
+			if (newVelocity.Length() >= 20.0)
+			{
+				PlayerSprite.Play("walking");
+			}
+			else
+				PlayerSprite.Play("default");
 		}
 	}
 

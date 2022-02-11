@@ -77,7 +77,7 @@ position = Vector2( 1357, 169 )
 MovementSpeed = 21.0
 
 [node name="AnimatedSprite" parent="ProjectileEnemy/EnemyBody" index="4"]
-frame = 2
+frame = 3
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ProjectileEnemy"]
 frames = SubResource( 2 )
