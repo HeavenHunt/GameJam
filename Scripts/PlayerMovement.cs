@@ -10,7 +10,6 @@ public class PlayerMovement : RigidBody2D
 	public bool isPaused = false;
 	public AnimatedSprite PlayerSprite;
 	private bool PlayerHurtFinished = false;
-	private bool bulletFired = true;
 	private void _on_EnemyBody_PlayerDamaged(float DamageTaken)
 	{
 		PlayerSprite.Play("Hurt Anim");

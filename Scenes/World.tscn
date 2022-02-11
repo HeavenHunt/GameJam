@@ -27,6 +27,7 @@ animations = [ {
 [node name="World" type="Node"]
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
+position = Vector2( 0, -1500 )
 
 [node name="Keys" type="Node" parent="."]
 
@@ -34,24 +35,24 @@ animations = [ {
 position = Vector2( 345, 321 )
 
 [node name="Key_Green" parent="Keys" instance=ExtResource( 9 )]
-position = Vector2( 345, 321 )
+position = Vector2( 751, 422 )
 
-[node name="Key_Purple" parent="Keys" instance=ExtResource( 10 )]
-position = Vector2( 345, 321 )
+[node name="Key_Violet" parent="Keys" instance=ExtResource( 10 )]
+position = Vector2( 3433, 95 )
 
 [node name="Key_Red" parent="Keys" instance=ExtResource( 11 )]
-position = Vector2( 345, 321 )
+position = Vector2( 1480, 690 )
 
 [node name="Key_Teal" parent="Keys" instance=ExtResource( 12 )]
-position = Vector2( 345, 321 )
+position = Vector2( 645, -170 )
 
 [node name="Key_Yellow" parent="Keys" instance=ExtResource( 13 )]
-position = Vector2( 345, 321 )
+position = Vector2( 1348, -452 )
 
 [node name="MeleeEnemy" parent="." instance=ExtResource( 2 )]
 
 [node name="EnemyBody" parent="MeleeEnemy" index="0"]
-position = Vector2( 1155, 404 )
+position = Vector2( 786, 569 )
 collision_mask = 5
 MovementSpeed = 28.0
 
@@ -73,11 +74,11 @@ contact_monitor = true
 [node name="ProjectileEnemy" parent="." instance=ExtResource( 4 )]
 
 [node name="EnemyBody" parent="ProjectileEnemy" index="0"]
-position = Vector2( 1357, 169 )
+position = Vector2( 981, 364 )
 MovementSpeed = 21.0
 
 [node name="AnimatedSprite" parent="ProjectileEnemy/EnemyBody" index="4"]
-frame = 2
+frame = 1
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ProjectileEnemy"]
 frames = SubResource( 2 )
