@@ -10,6 +10,7 @@ public class PlayerMovement : RigidBody2D
 	public bool isPaused = false;
 	public AnimatedSprite PlayerSprite;
 	private bool PlayerHurtFinished = false;
+	private bool bulletFired = true;
 	private void _on_EnemyBody_PlayerDamaged(float DamageTaken)
 	{
 		PlayerSprite.Play("Hurt Anim");
@@ -73,7 +74,7 @@ public class PlayerMovement : RigidBody2D
 	}
 
 	// Handles input, used to fire bullet when left mouse button is clicked
-	public override void _UnhandledInput(InputEvent @event)
+	public override void _Input(InputEvent @event)
 	{
 		if (@event is InputEventMouseButton mouseEvent) {
 			if (mouseEvent.ButtonIndex == (int)ButtonList.Left && mouseEvent.Pressed) {

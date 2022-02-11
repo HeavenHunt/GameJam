@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Final_Map_Playable.png-0f216af8e42a4f330107ca98e1da884b.stex"
+path="res://.import/Final_Map_Playable.png-b4afab68a1ffb6993b32d36c2e15353e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/Final_Map_Playable.png"
-dest_files=[ "res://.import/Final_Map_Playable.png-0f216af8e42a4f330107ca98e1da884b.stex" ]
+source_file="res://Images/MapImages/Final_Map_Playable.png"
+dest_files=[ "res://.import/Final_Map_Playable.png-b4afab68a1ffb6993b32d36c2e15353e.stex" ]
 
 [params]
 

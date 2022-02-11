@@ -1,9 +1,9 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/MeleeEnemy.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Map.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/ProjectileEnemy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Images/icon.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/DeathMenu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/PauseMenu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/UI/UI_CanvasLayer.tscn" type="PackedScene" id=8]
@@ -22,12 +22,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 123, 10 )
-
 [sub_resource type="TileSet" id=3]
 
 [node name="World" type="Node"]
+
+[node name="Map" parent="." instance=ExtResource( 3 )]
 
 [node name="Keys" type="Node" parent="."]
 
@@ -52,7 +51,7 @@ position = Vector2( 745, 746 )
 [node name="MeleeEnemy" parent="." instance=ExtResource( 2 )]
 
 [node name="EnemyBody" parent="MeleeEnemy" index="0"]
-position = Vector2( 150, 90 )
+position = Vector2( 1155, 404 )
 collision_mask = 5
 MovementSpeed = 28.0
 
@@ -72,28 +71,11 @@ collision_mask = 2
 [node name="ProjectileEnemy" parent="." instance=ExtResource( 4 )]
 
 [node name="EnemyBody" parent="ProjectileEnemy" index="0"]
-position = Vector2( 1005, 212 )
+position = Vector2( 1357, 169 )
 MovementSpeed = 21.0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ProjectileEnemy"]
 frames = SubResource( 2 )
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2( 490, 335 )
-collision_layer = 4
-mode = 1
-gravity_scale = 0.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="RigidBody2D"]
-scale = Vector2( 3.70962, 3.58836 )
-texture = ExtResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-scale = Vector2( 1, 11.96 )
-shape = SubResource( 1 )
 
 [node name="Pause" parent="." instance=ExtResource( 7 )]
 
