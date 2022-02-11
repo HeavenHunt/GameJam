@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Haunted_House_Music.mp3-9a45f89278ca78bd841f6f1326a48d3a.mp3str"
+
+[deps]
+
+source_file="res://Audio/Haunted_House_Music.mp3"
+dest_files=[ "res://.import/Haunted_House_Music.mp3-9a45f89278ca78bd841f6f1326a48d3a.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

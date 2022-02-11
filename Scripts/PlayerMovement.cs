@@ -9,6 +9,7 @@ public class PlayerMovement : RigidBody2D
 	public Vector2 newVelocity = new Vector2();
 	public bool isPaused = false;
 	public AnimatedSprite PlayerSprite;
+	private AudioStreamPlayer2D combatAudioPlayer;
 	private bool PlayerHurtFinished = false;
 	private bool bulletFired = true;
 	private void _on_EnemyBody_PlayerDamaged(float DamageTaken)
@@ -36,7 +37,9 @@ public class PlayerMovement : RigidBody2D
 		bulletScene = GD.Load<PackedScene>("res://Scenes/Bullet.tscn");
 		DeathMenu = GetNode<Control>("/root/World/Death/Control");
 		Connect("PlayerDeath", DeathMenu, "PlayerDeath");
-		//Connect("body_entered",GetParent(),"_on_PlayerBody_body_entered");
+		
+		//audio
+		combatAudioPlayer = GetNode<AudioStreamPlayer2D>("CombatAudioPlayer");
 	}
 
 	public void GetInput()
@@ -84,6 +87,10 @@ public class PlayerMovement : RigidBody2D
 				bullet.Rotation = Rotation;
 				GetParent().AddChild(bullet);
 				GetTree().SetInputAsHandled();
+
+				//play audio
+				combatAudioPlayer.Stream = GD.Load<AudioStream>("res://Audio/Shoot_SFX_1.wav");
+				combatAudioPlayer.Play();
 			}
 		}
 	}
