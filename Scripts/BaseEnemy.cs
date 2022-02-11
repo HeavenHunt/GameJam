@@ -51,7 +51,11 @@ public class BaseEnemy : RigidBody2D
 	protected virtual void _on_DetectionArea_body_exited(object body)
 	{
 		//GD.Print("Out of Detection Range");
-		PlayerFound = false;
+		if(body == Player)
+		{
+			PlayerFound = false;
+		}
+		
 	}
 
 	// Called when the node enters the scene tree for the first time.
@@ -80,7 +84,9 @@ public class BaseEnemy : RigidBody2D
 			{
 				QueueFree();
 			}
+
 		}
+		
 	}
 	public void _on_AnimatedSprite_animation_finished()
 	{
