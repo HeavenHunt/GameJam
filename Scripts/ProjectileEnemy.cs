@@ -19,13 +19,13 @@ public class ProjectileEnemy : BaseEnemy
 		base._PhysicsProcess(delta);
 		if (AnimSprite.Animation == "default")
 		{
-			while (AttackReady == true && InAttackRange == true)
+			if (AttackReady && PlayerFound)
 			{
 				//Fires bullet at player while they are within range and attack is off of cooldown
 				AttackPlayer();
-
+				this.LookAt(Player.Position);
 			}
-			if (PlayerFound == true && InAttackRange == false)
+			else if (PlayerFound)
 			{
 				LinearVelocity = Player.Position - this.Position;
 				Position += LinearVelocity.Clamped(5.0f) * delta * MovementSpeed;
@@ -49,20 +49,19 @@ public class ProjectileEnemy : BaseEnemy
 
 	protected override void AttackPlayer()
 	{
-		//EmitSignal(nameof(PlayerDamaged), AttackPower);
-		//GD.Print("Health Reduced");
-		//AttackCooldown.Start(TimeBetweenAttacks);
-		//AttackReady = false;
 		MonsterBullet monsterbullet = (MonsterBullet)MonsterBulletScene.Instance();
-		monsterbullet.Position = Position;
-		monsterbullet.Rotation = Rotation;
+		monsterbullet.Position = this.Position;
+		monsterbullet.Rotation = this.Rotation;
 		GetParent().AddChild(monsterbullet);
-		//base.AttackPlayer();
+		AttackCooldown.Start(TimeBetweenAttacks);
+		AttackReady = false;
+		//EmitSignal(nameof(PlayerDamaged), AttackPower);
 	}
-	
+
 	protected override void _on_Timer_timeout()
 	{
 		AttackReady = true;
+		GD.Print("Timer Elapsed");
 	}
 
 	protected override void _on_DetectionArea_body_entered(object body)
