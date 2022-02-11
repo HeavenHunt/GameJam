@@ -96,6 +96,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PauseAudio" type="AudioStreamPlayer" parent="Control"]
+
 [connection signal="pressed" from="Control/ColorRect/ResumeButton" to="Control" method="Resume_Button_Pressed"]
 [connection signal="pressed" from="Control/ColorRect/RestartButton" to="Control" method="Restart_Button_Pressed"]
 [connection signal="pressed" from="Control/ColorRect/QuitButton" to="Control" method="Quit_Button_Pressed"]

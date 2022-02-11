@@ -87,8 +87,10 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[node name="Player" type="Node"]
+[node name="Player" type="Node2D"]
 script = ExtResource( 3 )
+
+[node name="GeneralAudioPlayer" type="AudioStreamPlayer2D" parent="."]
 
 [node name="PlayerBody" type="RigidBody2D" parent="."]
 position = Vector2( 226, 317 )
@@ -113,6 +115,9 @@ rotation = 1.5708
 scale = Vector2( 0.086, 0.086 )
 frames = SubResource( 8 )
 playing = true
+
+[node name="CombatAudioPlayer" type="AudioStreamPlayer2D" parent="PlayerBody"]
+volume_db = -20.0
 
 [connection signal="body_entered" from="PlayerBody" to="." method="_on_PlayerBody_body_entered"]
 [connection signal="animation_finished" from="PlayerBody/AnimatedSprite" to="PlayerBody" method="_on_AnimatedSprite_animation_finished"]

@@ -1,12 +1,13 @@
 using Godot;
 using System;
 
-public class Player_Manager : Node
+public class Player_Manager : Node2D
 {
 	[Export] public float maxHealth = 10f;
 	public float currentHealth;
 	[Signal] public delegate void UpdateHealth(float healthCurrent, float healthMax);
 	[Signal] public delegate void AddKey(Node key);
+	private AudioStreamPlayer2D audioPlayer;
 
 	public static bool BlueKey { get; set; }
 	public static bool GreenKey { get; set; }
@@ -29,6 +30,9 @@ public class Player_Manager : Node
 		TealKey = false;
 		VioletKey = false;
 		YellowKey = false;
+
+		//audio
+		audioPlayer = GetNode<AudioStreamPlayer2D>("GeneralAudioPlayer");
 	}
 
 	public void _on_PlayerBody_body_entered(Node body){
@@ -36,7 +40,11 @@ public class Player_Manager : Node
 		if (body.IsInGroup("Enemy"))
 			TakeDamage(1f);
 		if (body.IsInGroup("Key")){
+			//emit signal and play audio
 			EmitSignal("AddKey", body);
+			audioPlayer.Stream = GD.Load<AudioStream>("res://Audio/Obtain_Key_Item.wav");
+			audioPlayer.Play();
+
 			if (body.Name.Contains("Blue")) {
 				BlueKey = true;
 			}

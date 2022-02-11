@@ -5,6 +5,12 @@ public class PauseMenu : Control
 {
 	private bool isPaused = false;
 	private bool allowPause = true;
+	private AudioStreamPlayer pauseSound;
+
+	public override void _Ready(){
+		pauseSound = GetNode<AudioStreamPlayer>("PauseAudio");
+		pauseSound.Stream = GD.Load<AudioStream>("res://Audio/Pause_Game_SFX.wav");
+	}
 
 	public bool GetIsPaused() {
 		return isPaused;
@@ -14,6 +20,7 @@ public class PauseMenu : Control
 		isPaused = value;
 		GetTree().Paused = isPaused; 
 		Visible = isPaused;
+		pauseSound.Play();
 	}
 
 	public void AllowPauseMenu(bool value) {
