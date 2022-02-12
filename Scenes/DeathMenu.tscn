@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/DeathMenu.cs" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
-size = 60
+size = 32
 use_filter = true
 font_data = ExtResource( 1 )
 
@@ -39,7 +39,6 @@ anchor_right = 0.6
 anchor_bottom = 0.65
 custom_fonts/font = SubResource( 1 )
 text = "RESTART"
-flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -51,7 +50,6 @@ anchor_right = 0.6
 anchor_bottom = 0.8
 custom_fonts/font = SubResource( 1 )
 text = "QUIT"
-flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

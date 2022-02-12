@@ -81,9 +81,9 @@ animations = [ {
 [sub_resource type="CircleShape2D" id=13]
 radius = 74.1687
 
-[node name="ProjectileEnemy" type="Node2D" groups=["Enemy"]]
+[node name="ProjectileEnemy" type="Node"]
 
-[node name="EnemyBody" type="RigidBody2D" parent="." groups=["Enemy"]]
+[node name="EnemyBody" type="RigidBody2D" parent="."]
 position = Vector2( 443, 262 )
 collision_layer = 2
 input_pickable = true
