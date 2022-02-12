@@ -15,7 +15,7 @@ public class Bullet : Node2D
 
 	public override void _Process(float delta)
 	{
-		float speed = 300;
+		float speed = 500;
 		float moveAmount = speed * delta;
 		Position += Transform.x.Normalized() * moveAmount;
 		distanceTravelled += moveAmount;

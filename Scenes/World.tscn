@@ -14,6 +14,7 @@
 [ext_resource path="res://Scenes/Keys/Key_Teal.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Keys/Key_Yellow.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/Keys/Key_Blue.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/WinMenu.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -23,12 +24,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="TileSet" id=3]
-
 [node name="World" type="Node"]
 
 [node name="Map" parent="." instance=ExtResource( 3 )]
-position = Vector2( 0, -1400 )
+position = Vector2( 100, -1400 )
 
 [node name="Keys" type="Node" parent="."]
 
@@ -75,11 +74,8 @@ contact_monitor = true
 [node name="ProjectileEnemy" parent="." instance=ExtResource( 4 )]
 
 [node name="EnemyBody" parent="ProjectileEnemy" index="0"]
-position = Vector2( 1357, 169 )
+position = Vector2( 461, 443 )
 MovementSpeed = 21.0
-
-[node name="AnimatedSprite" parent="ProjectileEnemy/EnemyBody" index="4"]
-frame = 0
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ProjectileEnemy"]
 frames = SubResource( 2 )
@@ -88,11 +84,9 @@ frames = SubResource( 2 )
 
 [node name="UI_CanvasLayer" parent="." instance=ExtResource( 8 )]
 
-[node name="Death" parent="." instance=ExtResource( 6 )]
+[node name="Win" parent="." instance=ExtResource( 15 )]
 
-[node name="TileMap" type="TileMap" parent="."]
-tile_set = SubResource( 3 )
-format = 1
+[node name="Death" parent="." instance=ExtResource( 6 )]
 
 [node name="WorldAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
