@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Images/Main_Menu-Art.png" type="Texture" id=1]
+[ext_resource path="res://Images/Credits.png" type="Texture" id=1]
 [ext_resource path="res://Images/MR.MONSTAR.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/StartMenu.cs" type="Script" id=3]
 [ext_resource path="res://Images/Crucial-Medium.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://Images/Main_Menu-Art.jpg" type="Texture" id=5]
+[ext_resource path="res://Images/Controls_Menu.jpg" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=2]
 size = 60
@@ -15,20 +17,14 @@ size = 60
 use_filter = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 70
-use_filter = true
-font_data = ExtResource( 4 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 70
-use_filter = true
-font_data = ExtResource( 4 )
-
 [sub_resource type="DynamicFont" id=5]
-size = 50
+size = 70
 use_filter = true
 font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 80
+font_data = ExtResource( 2 )
 
 [node name="StartMenu" type="CanvasLayer"]
 
@@ -43,7 +39,7 @@ __meta__ = {
 [node name="TextureRect" type="TextureRect" parent="StartMenuControl"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 1 )
+texture = ExtResource( 5 )
 expand = true
 stretch_mode = 1
 __meta__ = {
@@ -56,10 +52,10 @@ anchor_top = 0.72
 anchor_right = 0.95
 anchor_bottom = 0.82
 custom_colors/font_color_disabled = Color( 0.447059, 0.709804, 0.396078, 1 )
-custom_colors/font_color_focus = Color( 0.133333, 0.831373, 0, 1 )
-custom_colors/font_color = Color( 0.133333, 0.831373, 0, 1 )
-custom_colors/font_color_hover = Color( 0.105882, 0.658824, 0, 1 )
-custom_colors/font_color_pressed = Color( 0.0745098, 0.439216, 0.00392157, 1 )
+custom_colors/font_color_focus = Color( 0.490196, 1, 0.396078, 1 )
+custom_colors/font_color = Color( 0.490196, 1, 0.396078, 1 )
+custom_colors/font_color_hover = Color( 0.364706, 0.721569, 0.298039, 1 )
+custom_colors/font_color_pressed = Color( 0.203922, 0.411765, 0.168627, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Start Game"
 flat = true
@@ -69,16 +65,33 @@ __meta__ = {
 
 [node name="Credits" type="Button" parent="StartMenuControl"]
 anchor_left = 0.05
-anchor_top = 0.8
+anchor_top = 0.85
 anchor_right = 0.3
-anchor_bottom = 0.9
+anchor_bottom = 0.95
 custom_colors/font_color_disabled = Color( 0.447059, 0.709804, 0.396078, 1 )
-custom_colors/font_color_focus = Color( 0.133333, 0.831373, 0, 1 )
-custom_colors/font_color = Color( 0.133333, 0.831373, 0, 1 )
-custom_colors/font_color_hover = Color( 0.105882, 0.658824, 0, 1 )
-custom_colors/font_color_pressed = Color( 0.0745098, 0.439216, 0.00392157, 1 )
+custom_colors/font_color_focus = Color( 0.490196, 1, 0.396078, 1 )
+custom_colors/font_color = Color( 0.490196, 1, 0.396078, 1 )
+custom_colors/font_color_hover = Color( 0.364706, 0.721569, 0.298039, 1 )
+custom_colors/font_color_pressed = Color( 0.203922, 0.411765, 0.168627, 1 )
 custom_fonts/font = SubResource( 2 )
 text = "Credits"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Button" parent="StartMenuControl"]
+anchor_left = 0.05
+anchor_top = 0.72
+anchor_right = 0.3
+anchor_bottom = 0.82
+custom_colors/font_color_disabled = Color( 0.447059, 0.709804, 0.396078, 1 )
+custom_colors/font_color_focus = Color( 0.490196, 1, 0.396078, 1 )
+custom_colors/font_color = Color( 0.490196, 1, 0.396078, 1 )
+custom_colors/font_color_hover = Color( 0.364706, 0.721569, 0.298039, 1 )
+custom_colors/font_color_pressed = Color( 0.203922, 0.411765, 0.168627, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Controls"
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -90,10 +103,10 @@ anchor_top = 0.85
 anchor_right = 0.95
 anchor_bottom = 0.92
 custom_colors/font_color_disabled = Color( 0.447059, 0.709804, 0.396078, 1 )
-custom_colors/font_color_focus = Color( 0.133333, 0.831373, 0, 1 )
-custom_colors/font_color = Color( 0.133333, 0.831373, 0, 1 )
-custom_colors/font_color_hover = Color( 0.105882, 0.658824, 0, 1 )
-custom_colors/font_color_pressed = Color( 0.0745098, 0.439216, 0.00392157, 1 )
+custom_colors/font_color_focus = Color( 0.490196, 1, 0.396078, 1 )
+custom_colors/font_color = Color( 0.490196, 1, 0.396078, 1 )
+custom_colors/font_color_hover = Color( 0.364706, 0.721569, 0.298039, 1 )
+custom_colors/font_color_pressed = Color( 0.203922, 0.411765, 0.168627, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Quit Game"
 flat = true
@@ -109,62 +122,59 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="Credits"]
+[node name="TextureRect" type="TextureRect" parent="Credits"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0, 0, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Title" type="RichTextLabel" parent="Credits"]
-anchor_left = 0.4
-anchor_top = 0.05
-anchor_right = 0.6
-anchor_bottom = 0.2
-custom_fonts/normal_font = SubResource( 3 )
-text = "	Credits
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="LeftCredit" type="RichTextLabel" parent="Credits"]
-anchor_left = 0.05
-anchor_top = 0.15
-anchor_right = 0.45
-anchor_bottom = 0.95
-custom_fonts/mono_font = SubResource( 4 )
-custom_fonts/normal_font = SubResource( 3 )
-text = "
-"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RightCredit" type="RichTextLabel" parent="Credits"]
-anchor_left = 0.55
-anchor_top = 0.15
-anchor_right = 0.95
-anchor_bottom = 0.95
-custom_fonts/mono_font = SubResource( 4 )
-custom_fonts/normal_font = SubResource( 3 )
+texture = ExtResource( 1 )
+expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="Credits"]
-anchor_left = 0.4
-anchor_top = 0.9
-anchor_right = 0.6
-anchor_bottom = 0.98
+anchor_left = 0.75
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.15
 custom_fonts/font = SubResource( 5 )
 text = "Back"
+flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Controls" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Controls"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Controls"]
+anchor_left = 0.4
+anchor_top = 0.75
+anchor_right = 0.6
+anchor_bottom = 0.85
+custom_fonts/font = SubResource( 6 )
+text = "Back"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [connection signal="pressed" from="StartMenuControl/Start" to="StartMenuControl" method="Start_Button_Pressed"]
 [connection signal="pressed" from="StartMenuControl/Credits" to="StartMenuControl" method="Credits_Button_Pressed"]
+[connection signal="pressed" from="StartMenuControl/Controls" to="StartMenuControl" method="Controls_Button_Pressed"]
 [connection signal="pressed" from="StartMenuControl/Quit" to="StartMenuControl" method="Quit_Button_Pressed"]
 [connection signal="pressed" from="Credits/Button" to="StartMenuControl" method="Back_Button_Pressed"]
+[connection signal="pressed" from="Controls/Button" to="StartMenuControl" method="Back_Button_Pressed"]
