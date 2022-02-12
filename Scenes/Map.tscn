@@ -54,6 +54,7 @@ extents = Vector2( 54.5, 200 )
 extents = Vector2( 104, 44.5 )
 
 [node name="Node2D" type="Node2D"]
+position = Vector2( 100, -1400 )
 
 [node name="Map" type="TextureRect" parent="."]
 anchor_top = -1.0

@@ -98,7 +98,7 @@ __meta__ = {
 }
 
 [node name="EnemyCollisionShape" type="CollisionShape2D" parent="EnemyBody"]
-scale = Vector2( 5.07262, 5.13704 )
+scale = Vector2( 2.5, 2.6 )
 shape = SubResource( 2 )
 
 [node name="DetectionArea" type="Area2D" parent="EnemyBody"]
@@ -115,12 +115,13 @@ enabled = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="EnemyBody"]
 rotation = 1.5708
-scale = Vector2( 0.2, 0.2 )
+scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 12 )
 frame = 6
 playing = true
 
 [node name="HitBox" type="Area2D" parent="EnemyBody"]
+scale = Vector2( 0.5, 0.5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/HitBox"]
 shape = SubResource( 13 )
