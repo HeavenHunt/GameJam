@@ -8,7 +8,7 @@
 radius = 12.0505
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 190.129
+radius = 201.002
 
 [sub_resource type="AtlasTexture" id=14]
 flags = 4
@@ -117,7 +117,7 @@ enabled = true
 rotation = 1.5708
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 12 )
-frame = 4
+frame = 5
 playing = true
 
 [node name="HitBox" type="Area2D" parent="EnemyBody"]

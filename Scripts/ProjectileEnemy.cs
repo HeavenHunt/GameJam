@@ -25,8 +25,9 @@ public class ProjectileEnemy : BaseEnemy
 				AttackPlayer();
 				this.LookAt(Player.Position);
 			}
-			else if (PlayerFound)
+			else if ((Player.Position-this.Position).Abs().Length() > 180.0f && PlayerFound)
 			{
+				GD.Print((Player.Position - this.Position).Abs().Length());
 				LinearVelocity = Player.Position - this.Position;
 				Position += LinearVelocity.Clamped(5.0f) * delta * MovementSpeed;
 				this.LookAt(Player.Position);
