@@ -41,7 +41,9 @@ public class PlayerMovement : RigidBody2D
 		bulletScene = GD.Load<PackedScene>("res://Scenes/Bullet.tscn");
 		DeathMenu = GetNode<Control>("/root/World/Death/Control");
 		Connect("PlayerDeath", DeathMenu, "PlayerDeath");
-		
+		var area = GetNode<Area2D>("PlayerHitBox");
+		area.Connect("area_entered", this, "OnCollision");
+		area.Connect("body_entered", this, "OnCollision");
 		//audio
 		combatAudioPlayer = GetNode<AudioStreamPlayer2D>("CombatAudioPlayer");
 	}
@@ -86,7 +88,6 @@ public class PlayerMovement : RigidBody2D
 				PlayerSprite.Play("default");
 		}
 	}
-
 	// Handles input, used to fire bullet when left mouse button is clicked
 	public override void _Input(InputEvent @event)
 	{
@@ -104,6 +105,20 @@ public class PlayerMovement : RigidBody2D
 			}
 		}
 	}
+	protected void OnCollision(Node with)
+	{
+		if(with.Name == "MonsterBulletArea2D")
+		{
+			GD.Print("Bullet hit");
+			_on_EnemyBody_PlayerDamaged(1.0f);
+		}
+	}
 }
+
+
+
+
+
+
 
 

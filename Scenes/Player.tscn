@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/PlayerMovement.cs" type="Script" id=1]
 [ext_resource path="res://Images/LooueiesOneFrameIdleTempQuestionMark4x.png" type="Texture" id=2]
@@ -87,6 +87,9 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="CircleShape2D" id=17]
+radius = 49.0102
+
 [node name="Player" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -118,6 +121,11 @@ playing = true
 
 [node name="CombatAudioPlayer" type="AudioStreamPlayer2D" parent="PlayerBody"]
 volume_db = -25.0
+
+[node name="PlayerHitBox" type="Area2D" parent="PlayerBody"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody/PlayerHitBox"]
+shape = SubResource( 17 )
 
 [connection signal="body_entered" from="PlayerBody" to="." method="_on_PlayerBody_body_entered"]
 [connection signal="animation_finished" from="PlayerBody/AnimatedSprite" to="PlayerBody" method="_on_AnimatedSprite_animation_finished"]

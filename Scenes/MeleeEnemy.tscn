@@ -118,7 +118,7 @@ enabled = true
 rotation = 1.5708
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 12 )
-frame = 6
+frame = 2
 playing = true
 
 [node name="HitBox" type="Area2D" parent="EnemyBody"]
