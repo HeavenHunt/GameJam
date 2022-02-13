@@ -23,6 +23,7 @@ public class Doors : Area2D
                 if (Player_Manager.BlueKey && doorClosed) {
                     GetNode<AnimatedSprite>("/root/World/Map/Map/Blue").Play();
                     GetNode<StaticBody2D>("/root/World/Map/Map/Blue/StaticBody2D").QueueFree();
+                    GetNode<Area2D>("/root/World/Map/Map/Blue/Area2D").QueueFree();
                     doorClosed = false;
                     CallDeferred("spawnMeleeEnemies", 5);
                 }
@@ -31,6 +32,7 @@ public class Doors : Area2D
                 if (Player_Manager.GreenKey && doorClosed) {
                     GetNode<AnimatedSprite>("/root/World/Map/Map/Green").Play();
                     GetNode<StaticBody2D>("/root/World/Map/Map/Green/StaticBody2D").QueueFree();
+                    GetNode<Area2D>("/root/World/Map/Map/Green/Area2D").QueueFree();
                     doorClosed = false;
                     CallDeferred("spawnMeleeEnemies", 3);
                     CallDeferred("spawnProjectileEnemies", 3);
@@ -40,6 +42,7 @@ public class Doors : Area2D
                 if (Player_Manager.RedKey && doorClosed) {
                     GetNode<AnimatedSprite>("/root/World/Map/Map/Red").Play();
                     GetNode<StaticBody2D>("/root/World/Map/Map/Red/StaticBody2D").QueueFree();
+                    GetNode<Area2D>("/root/World/Map/Map/Red/Area2D").QueueFree();
                     doorClosed = false;
                     CallDeferred("spawnMeleeEnemies", 4);
                 }
@@ -48,6 +51,7 @@ public class Doors : Area2D
                 if (Player_Manager.TealKey && doorClosed) {
                     GetNode<AnimatedSprite>("/root/World/Map/Map/Teal").Play();
                     GetNode<StaticBody2D>("/root/World/Map/Map/Teal/StaticBody2D").QueueFree();
+                    GetNode<Area2D>("/root/World/Map/Map/Teal/Area2D").QueueFree();
                     doorClosed = false;
                     CallDeferred("spawnMeleeEnemies", 6);
                     CallDeferred("spawnProjectileEnemies", 6);
@@ -57,6 +61,7 @@ public class Doors : Area2D
                 if (Player_Manager.VioletKey && doorClosed) {
                     GetNode<AnimatedSprite>("/root/World/Map/Map/Violet").Play();
                     GetNode<StaticBody2D>("/root/World/Map/Map/Violet/StaticBody2D").QueueFree();
+                    GetNode<Area2D>("/root/World/Map/Map/Violet/Area2D").QueueFree();
                     doorClosed = false;
                     spawnBoss();
                 }
@@ -65,6 +70,7 @@ public class Doors : Area2D
                 if (Player_Manager.YellowKey && doorClosed) {
                     GetNode<AnimatedSprite>("/root/World/Map/Map/Yellow").Play();
                     GetNode<StaticBody2D>("/root/World/Map/Map/Yellow/StaticBody2D").QueueFree();
+                    GetNode<Area2D>("/root/World/Map/Map/Yellow/Area2D").QueueFree();
                     doorClosed = false;
                     CallDeferred("spawnMeleeEnemies", 4);
                 }

@@ -3,23 +3,22 @@ using System;
 
 public class UIController : Control
 {
-    private TextureProgress healthProgress;
+    public TextureProgress healthProgress;
     private HBoxContainer keyContainer;
     private PackedScene keyScene;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        healthProgress = GetNode<TextureProgress>("/root/World/UI_CanvasLayer/Control/UI_Container/HealthBarBacking/HealthProgress");
+        healthProgress = GetNode<TextureProgress>("UI_Container/HealthBarBacking/HealthProgress");
         keyContainer = GetNode<HBoxContainer>("/root/World/UI_CanvasLayer/Control/UI_Container/KeyContainer");
         keyScene = (PackedScene)GD.Load("res://Scenes/Keys/Key_UI.tscn");
     }
 
     public void _on_Player_UpdateHealth(float healthCurrent, float healthMax){
-        //TODO this causes crashing, null reference error, need to fix
-        GD.Print("UIController _on_Player_UpdateHealth called from signal!");
-        //healthProgress.MaxValue = healthMax;
-        //healthProgress.Value = healthCurrent;
+        healthProgress = GetNode<TextureProgress>("UI_Container/HealthBarBacking/HealthProgress");
+        healthProgress.MaxValue = healthMax;
+        healthProgress.Value = healthCurrent;
     }
 
     public void _on_Player_AddKey(Node key){

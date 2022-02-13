@@ -103,6 +103,7 @@ __meta__ = {
 }
 
 [node name="PauseAudio" type="AudioStreamPlayer" parent="Control"]
+volume_db = -10.0
 
 [connection signal="pressed" from="Control/ColorRect/ResumeButton" to="Control" method="Resume_Button_Pressed"]
 [connection signal="pressed" from="Control/ColorRect/RestartButton" to="Control" method="Restart_Button_Pressed"]

@@ -42,19 +42,19 @@ extents = Vector2( 98, 16.5 )
 [sub_resource type="CircleShape2D" id=9]
 radius = 109.353
 
-[node name="AnimatedSprite" type="AnimatedSprite"]
+[node name="AnimatedSprite" type="AnimatedSprite" groups=["Door"]]
 position = Vector2( 877.75, 454.75 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 8 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["Door"]]
 scale = Vector2( 2, 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( -1, -87.5 )
 shape = SubResource( 1 )
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["Door"]]
 position = Vector2( -1755.5, -909.5 )
 scale = Vector2( 2, 2 )
 script = ExtResource( 2 )

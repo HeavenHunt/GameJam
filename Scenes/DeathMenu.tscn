@@ -68,5 +68,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="DeathAudio" type="AudioStreamPlayer" parent="Control"]
+volume_db = -20.0
+
 [connection signal="pressed" from="Control/ColorRect/RestartButton" to="Control" method="Restart_Button_Pressed"]
 [connection signal="pressed" from="Control/ColorRect/QuitButton" to="Control" method="Quit_Button_Pressed"]

@@ -3,7 +3,7 @@ using System;
 
 public class Player_Manager : Node2D
 {
-	[Export] public float maxHealth = 10f;
+	[Export] public float maxHealth = 5.0f;
 	public float currentHealth;
 	[Signal] public delegate void UpdateHealth(float healthCurrent, float healthMax);
 	[Signal] public delegate void AddKey(Node key);
@@ -36,9 +36,6 @@ public class Player_Manager : Node2D
 	}
 
 	public void _on_PlayerBody_body_entered(Node body){
-		//GD.Print("_on_PlayerBody_body_enter called!");
-		if (body.IsInGroup("Enemy"))
-			TakeDamage(1f);
 		if (body.IsInGroup("Key")){
 			//emit signal and play audio
 			EmitSignal("AddKey", body);
@@ -65,6 +62,11 @@ public class Player_Manager : Node2D
 			}
 			body.QueueFree();
 		}
+	}
+
+	public void _on_PlayerDamaged(){
+		GD.Print("_on_PlayerDamaged called!");
+		TakeDamage(1f);
 	}
 
 	public void TakeDamage(float damage){
