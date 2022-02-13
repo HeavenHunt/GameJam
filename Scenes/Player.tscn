@@ -107,7 +107,7 @@ __meta__ = {
 speed = 300
 
 [node name="PlayerCollisionShape" type="CollisionShape2D" parent="PlayerBody"]
-scale = Vector2( 3.65135, 3.55979 )
+scale = Vector2( 4, 4 )
 shape = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="PlayerBody"]
@@ -115,7 +115,7 @@ current = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="PlayerBody"]
 rotation = 1.5708
-scale = Vector2( 0.086, 0.086 )
+scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 8 )
 playing = true
 
@@ -123,6 +123,7 @@ playing = true
 volume_db = -25.0
 
 [node name="PlayerHitBox" type="Area2D" parent="PlayerBody"]
+scale = Vector2( 1.1, 1.1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerBody/PlayerHitBox"]
 shape = SubResource( 17 )

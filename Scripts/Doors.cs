@@ -6,14 +6,21 @@ public class Doors : Area2D
     bool doorClosed = true;
     Area2D SpawnBox;
     CollisionShape2D SpawnCollider;
-    PackedScene MeleeEnemy, ProjectileEnemy;
+    PackedScene MeleeEnemy, ProjectileEnemy, GreenKey, RedKey, TealKey, VioletKey, YellowKey;
     RandomNumberGenerator rng = new RandomNumberGenerator();
+    Node KeyHolder;
     string doorColor = "";
 
     public override void _Ready()
     {
         MeleeEnemy = GD.Load<PackedScene>("res://Scenes/MeleeEnemy.tscn");
         ProjectileEnemy = GD.Load<PackedScene>("res://Scenes/ProjectileEnemy.tscn");
+        GreenKey = GD.Load<PackedScene>("res://Scenes/Keys/Key_Green.tscn");
+        RedKey = GD.Load<PackedScene>("res://Scenes/Keys/Key_Red.tscn");
+        TealKey = GD.Load<PackedScene>("res://Scenes/Keys/Key_Teal.tscn");
+        VioletKey = GD.Load<PackedScene>("res://Scenes/Keys/Key_Violet.tscn");
+        YellowKey = GD.Load<PackedScene>("res://Scenes/Keys/Key_Yellow.tscn");
+        KeyHolder = GetNode("/root/World/Keys");
         setDoorColor();
     }
     protected void _on_Area2D_body_entered(PhysicsBody2D body) {
@@ -26,6 +33,7 @@ public class Doors : Area2D
                     GetNode<Area2D>("/root/World/Map/Map/Blue/Area2D").QueueFree();
                     doorClosed = false;
                     CallDeferred("spawnMeleeEnemies", 5);
+                    CallDeferred("spawnKey");
                 }
                 break;
             case "Green":
@@ -36,6 +44,7 @@ public class Doors : Area2D
                     doorClosed = false;
                     CallDeferred("spawnMeleeEnemies", 3);
                     CallDeferred("spawnProjectileEnemies", 3);
+                    CallDeferred("spawnKey");
                 }
                 break;
             case "Red":
@@ -45,6 +54,7 @@ public class Doors : Area2D
                     GetNode<Area2D>("/root/World/Map/Map/Red/Area2D").QueueFree();
                     doorClosed = false;
                     CallDeferred("spawnMeleeEnemies", 4);
+                    CallDeferred("spawnKey");
                 }
                 break;
             case "Teal":
@@ -55,6 +65,7 @@ public class Doors : Area2D
                     doorClosed = false;
                     CallDeferred("spawnMeleeEnemies", 6);
                     CallDeferred("spawnProjectileEnemies", 6);
+                    CallDeferred("spawnKey");
                 }
                 break;
             case "Violet":
@@ -73,6 +84,7 @@ public class Doors : Area2D
                     GetNode<Area2D>("/root/World/Map/Map/Yellow/Area2D").QueueFree();
                     doorClosed = false;
                     CallDeferred("spawnMeleeEnemies", 4);
+                    CallDeferred("spawnKey");
                 }
                 break;
         }
@@ -109,6 +121,35 @@ public class Doors : Area2D
 
     private void spawnBoss() {
 
+    }
+
+    private void spawnKey() {
+        RigidBody2D Key;
+        if (doorColor == "Blue") {
+            Key = (RigidBody2D)GreenKey.Instance();
+            Key.Position = new Vector2(1100, 400);
+            KeyHolder.AddChild(Key);
+        }
+        if (doorColor == "Green") {
+            Key = (RigidBody2D)YellowKey.Instance();
+            Key.Position = new Vector2(1500, -350);
+            KeyHolder.AddChild(Key);
+        }
+        if (doorColor == "Yellow") {
+            Key = (RigidBody2D)RedKey.Instance();
+            Key.Position = new Vector2(1400, 800);
+            KeyHolder.AddChild(Key);
+        }
+        if (doorColor == "Red") {
+            Key = (RigidBody2D)TealKey.Instance();
+            Key.Position = new Vector2(750, -200);
+            KeyHolder.AddChild(Key);
+        }
+        if (doorColor == "Teal") {
+            Key = (RigidBody2D)VioletKey.Instance();
+            Key.Position = new Vector2(3600, 300);
+            KeyHolder.AddChild(Key);
+        }
     }
 
     private void setDoorColor() {
