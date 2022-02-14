@@ -117,7 +117,7 @@ enabled = true
 rotation = 1.5708
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 12 )
-frame = 2
+frame = 5
 playing = true
 
 [node name="HitBox" type="Area2D" parent="EnemyBody"]
@@ -125,6 +125,8 @@ scale = Vector2( 0.5, 0.5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/HitBox"]
 shape = SubResource( 13 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="EnemyBody"]
 
 [connection signal="body_entered" from="EnemyBody" to="EnemyBody" method="_on_EnemyBody_body_entered"]
 [connection signal="body_exited" from="EnemyBody" to="EnemyBody" method="_on_EnemyBody_body_exited"]

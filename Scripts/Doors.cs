@@ -126,7 +126,7 @@ public class Doors : Area2D
 		Vector2 size = rectangle.Extents;
 		Vector2 positionInArea = new Vector2((rng.Randi() % size.x) - (size.x/2) + centerPos.x, (rng.Randi() % size.y) - (size.y/2) + centerPos.y);
 		Node spawn = BossEnemy.Instance();
-		spawn.GetNode<RigidBody2D>("EnemyBody").Position = positionInArea;
+		spawn.GetNode<RigidBody2D>("BossBody").Position = positionInArea;
 		SpawnBox.AddChild(spawn);
 	}
 

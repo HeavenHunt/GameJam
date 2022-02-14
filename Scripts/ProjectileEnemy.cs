@@ -4,10 +4,11 @@ using System;
 public class ProjectileEnemy : BaseEnemy
 {
 	PackedScene MonsterBulletScene;
-	
+	protected AudioStreamPlayer2D combatAudioPlayer;
 	public override void _Ready()
 	{
-		
+		combatAudioPlayer = GetNode<AudioStreamPlayer2D>("AudioStreamPlayer2D");
+		combatAudioPlayer.Stream = GD.Load<AudioStream>("res://Audio/Slime_Projectile.wav");
 		base._Ready();
 		MonsterBulletScene = GD.Load<PackedScene>("res://Scenes/MonsterBullet.tscn");
 		
@@ -29,7 +30,7 @@ public class ProjectileEnemy : BaseEnemy
 			{
 				GD.Print((Player.Position - this.Position).Abs().Length());
 				LinearVelocity = Player.Position - this.Position;
-				Position += LinearVelocity.Clamped(2.0f) * delta * MovementSpeed;
+				Position += LinearVelocity.Clamped(1.25f) * delta * MovementSpeed;
 				this.LookAt(Player.Position);
 
 			}
@@ -52,6 +53,7 @@ public class ProjectileEnemy : BaseEnemy
 		monsterbullet.Rotation = this.Rotation;
 		GetParent().AddChild(monsterbullet);
 		AttackCooldown.Start(TimeBetweenAttacks);
+		combatAudioPlayer.Play();
 		AttackReady = false;
 		//EmitSignal(nameof(PlayerDamaged), AttackPower);
 	}
