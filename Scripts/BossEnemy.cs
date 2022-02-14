@@ -10,7 +10,7 @@ public class BossEnemy : ProjectileEnemy
 	public override void _Ready()
 	{
 		//SpawnArea = GetNode<Area2D>("SpawnArea");
-		TimeBetweenAttacks = 0.1f;
+		TimeBetweenAttacks = 0.25f;
 		base._Ready();
 		Health = 40;
 		MeleeEnemy = GD.Load<PackedScene>("res://Scenes/MeleeEnemy.tscn");
