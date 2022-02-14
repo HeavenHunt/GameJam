@@ -3,12 +3,13 @@ using System;
 
 public class Player_Manager : Node2D
 {
-	[Export] public float maxHealth = 5.0f;
+	[Export] public const float maxHealth = 5.0f;
 	public float currentHealth;
 	[Signal] public delegate void UpdateHealth(float healthCurrent, float healthMax);
 	[Signal] public delegate void AddKey(Node key);
+	[Signal] protected delegate void PlayerDeath();
 	private AudioStreamPlayer2D audioPlayer;
-
+	Control DeathMenu;
 	public static bool BlueKey { get; set; }
 	public static bool GreenKey { get; set; }
 	public static bool RedKey { get; set; }
@@ -30,6 +31,9 @@ public class Player_Manager : Node2D
 		TealKey = false;
 		VioletKey = false;
 		YellowKey = false;
+
+		DeathMenu = GetNode<Control>("/root/World/Death/Control");
+		Connect("PlayerDeath", DeathMenu, "PlayerDeath");
 
 		//audio
 		audioPlayer = GetNode<AudioStreamPlayer2D>("GeneralAudioPlayer");
@@ -66,14 +70,17 @@ public class Player_Manager : Node2D
 
 	public void _on_PlayerDamaged(){
 		GD.Print("_on_PlayerDamaged called!");
-		TakeDamage(1f);
+		TakeDamage(0.5f);
 	}
 
 	public void TakeDamage(float damage){
 		currentHealth -= damage;
-		if (currentHealth < 0)
+		if (currentHealth < 0) {
 			currentHealth = 0;
-
+			EmitSignal(nameof(PlayerDeath));
+			currentHealth = maxHealth;
+		}
+		
 		EmitSignal("UpdateHealth",currentHealth, maxHealth);
 
 		//play audio

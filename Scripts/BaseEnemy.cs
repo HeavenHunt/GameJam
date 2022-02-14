@@ -6,7 +6,7 @@ public class BaseEnemy : RigidBody2D
 	public RigidBody2D Player;
 	//protected RayCast2D SightLine;
 	public int Health = 3;
-	[Export] public float AttackPower = 1.0f;
+	[Export] public float AttackPower = 0.5f;
 	[Export] public float MovementSpeed = 50.0f;
 	public bool PlayerFound = false;
 	public bool InAttackRange = false;

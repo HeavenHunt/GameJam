@@ -84,6 +84,7 @@ public class PlayerMovement : RigidBody2D
 		if (health <= 0.0f)
 		{
 			EmitSignal(nameof(PlayerDeath));
+			health = 5.0f;
 		}
 		else {
 			GetInput();
@@ -120,7 +121,7 @@ public class PlayerMovement : RigidBody2D
 			GD.Print("Bullet hit");
 			combatAudioPlayer.Stream = GD.Load<AudioStream>("res://Audio/Slime_Projectile.wav");
 			combatAudioPlayer.Play();
-			_on_EnemyBody_PlayerDamaged(1.0f);
+			_on_EnemyBody_PlayerDamaged(0.5f);
 		}
 
 		if(with.IsInGroup("Door")){

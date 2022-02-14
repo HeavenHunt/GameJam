@@ -25,7 +25,7 @@ public class MeleeEnemy : BaseEnemy
 	protected override void AttackPlayer()
 	{
 		EmitSignal(nameof(PlayerDamaged), AttackPower);
-		GD.Print("Health Reduced");
+		//GD.Print("Health Reduced");
 		AttackCooldown.Start(TimeBetweenAttacks);
 		AttackReady = false;
 	}
