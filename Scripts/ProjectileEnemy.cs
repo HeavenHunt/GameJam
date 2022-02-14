@@ -25,17 +25,14 @@ public class ProjectileEnemy : BaseEnemy
 				AttackPlayer();
 				this.LookAt(Player.Position);
 			}
-			else if ((Player.Position-this.Position).Abs().Length() > 180.0f && PlayerFound)
+			else if ((Player.Position-this.Position).Abs().Length() > 250.0f && PlayerFound)
 			{
 				GD.Print((Player.Position - this.Position).Abs().Length());
 				LinearVelocity = Player.Position - this.Position;
-				Position += LinearVelocity.Clamped(5.0f) * delta * MovementSpeed;
+				Position += LinearVelocity.Clamped(2.0f) * delta * MovementSpeed;
 				this.LookAt(Player.Position);
 
 			}
-			// Larger Detection Bubble that has maximum sight distance
-			// when slime gets within a certain range of player, it will begin firing at them
-			// it will retreat if the player gets too close, but it will continue firing as long as the player is within line of sight
 		}
 	}
 	protected override void _on_EnemyBody_body_entered(Node body)

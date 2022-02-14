@@ -1,90 +1,93 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
-[ext_resource path="res://Scripts/MeleeEnemy.cs" type="Script" id=1]
-[ext_resource path="res://Images/RedSlimeDeathRedux.png" type="Texture" id=2]
-[ext_resource path="res://Images/RedBlobWalkCycle.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/BossEnemy.cs" type="Script" id=1]
+[ext_resource path="res://Images/DeathSlimeWalkCycle.png" type="Texture" id=2]
+[ext_resource path="res://Images/DeathBlobDiesSadFace.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 12.0505
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 422.686
+radius = 375.108
 
-[sub_resource type="AtlasTexture" id=14]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 625, 609 )
-
-[sub_resource type="AtlasTexture" id=15]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 625, 0, 625, 609 )
-
-[sub_resource type="AtlasTexture" id=16]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 1250, 0, 625, 609 )
-
-[sub_resource type="AtlasTexture" id=17]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 0, 609, 625, 609 )
-
-[sub_resource type="AtlasTexture" id=18]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 625, 609, 625, 609 )
-
-[sub_resource type="AtlasTexture" id=19]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 1250, 609, 625, 609 )
-
-[sub_resource type="AtlasTexture" id=20]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 0, 1218, 625, 609 )
-
-[sub_resource type="AtlasTexture" id=21]
+[sub_resource type="AtlasTexture" id=25]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 1698, 1602 )
+region = Rect2( 0, 0, 1369, 1332 )
 
-[sub_resource type="AtlasTexture" id=22]
+[sub_resource type="AtlasTexture" id=26]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 1698, 0, 1698, 1602 )
+region = Rect2( 1369, 0, 1369, 1332 )
 
-[sub_resource type="AtlasTexture" id=23]
+[sub_resource type="AtlasTexture" id=27]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 0, 1602, 1698, 1602 )
+region = Rect2( 2738, 0, 1369, 1332 )
 
-[sub_resource type="AtlasTexture" id=24]
+[sub_resource type="AtlasTexture" id=28]
 flags = 4
 atlas = ExtResource( 2 )
-region = Rect2( 1698, 1602, 1698, 1602 )
+region = Rect2( 0, 1332, 1369, 1332 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 1369, 1332, 1369, 1332 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 2738, 1332, 1369, 1332 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 2 )
+region = Rect2( 0, 2664, 1369, 1332 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 3780, 3565 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 3780, 0, 3780, 3565 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 3565, 3780, 3565 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 3780, 3565, 3780, 3565 )
 
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ) ],
 "loop": true,
 "name": "default",
-"speed": 15.0
+"speed": 13.0
 }, {
-"frames": [ SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"frames": [ SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ) ],
 "loop": true,
 "name": "Death Anim",
-"speed": 12.0
+"speed": 10.0
 } ]
 
 [sub_resource type="CircleShape2D" id=13]
-radius = 74.1687
+radius = 134.134
 
-[node name="MeleeEnemy" type="Node"]
+[sub_resource type="RectangleShape2D" id=36]
+extents = Vector2( 116, 148 )
+
+[node name="Boss" type="Node"]
 
 [node name="EnemyBody" type="RigidBody2D" parent="."]
-position = Vector2( 882, 505 )
+position = Vector2( 433, 259 )
 collision_layer = 2
 input_pickable = true
 mode = 2
@@ -102,7 +105,6 @@ scale = Vector2( 2.5, 2.6 )
 shape = SubResource( 2 )
 
 [node name="DetectionArea" type="Area2D" parent="EnemyBody"]
-scale = Vector2( 0.75, 0.75 )
 collision_layer = 8
 
 [node name="DetectionShape" type="CollisionShape2D" parent="EnemyBody/DetectionArea"]
@@ -126,6 +128,12 @@ scale = Vector2( 0.5, 0.5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/HitBox"]
 shape = SubResource( 13 )
+
+[node name="SpawnArea" type="Area2D" parent="EnemyBody"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyBody/SpawnArea"]
+position = Vector2( 191, 6 )
+shape = SubResource( 36 )
 
 [connection signal="body_entered" from="EnemyBody" to="EnemyBody" method="_on_EnemyBody_body_entered"]
 [connection signal="body_exited" from="EnemyBody" to="EnemyBody" method="_on_EnemyBody_body_exited"]

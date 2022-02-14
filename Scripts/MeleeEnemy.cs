@@ -54,7 +54,7 @@ public class MeleeEnemy : BaseEnemy
 			if (PlayerFound)
 			{
 				LinearVelocity = Player.Position - this.Position;
-				Position += LinearVelocity.Clamped(5.0f) * delta * MovementSpeed;
+				Position += LinearVelocity.Clamped(4.0f) * delta * MovementSpeed;
 				this.LookAt(Player.Position);
 			}
 		}
