@@ -6,6 +6,8 @@ public class BossEnemy : ProjectileEnemy
 	PackedScene MeleeEnemy;
 	Area2D SpawnArea;
 	RandomNumberGenerator rng = new RandomNumberGenerator();
+	[Signal] protected delegate void PlayerWon();
+	Control WinMenu;
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -14,6 +16,8 @@ public class BossEnemy : ProjectileEnemy
 		base._Ready();
 		Health = 40;
 		MeleeEnemy = GD.Load<PackedScene>("res://Scenes/MeleeEnemy.tscn");
+		WinMenu = GetNode<Control>("/root/World/Win/Control");
+		Connect("PlayerWon", WinMenu, "PlayerWon");
 	}
 	new protected void _on_HitBox_area_entered(Node area)
 	{
@@ -21,7 +25,10 @@ public class BossEnemy : ProjectileEnemy
 		{
 			Health -= 1;
 			//CallDeferred("BossSpawningFunction");
-			 
+			if (Health <= 0) {
+				QueueFree();
+				EmitSignal("PlayerWon");
+			}
 
 		}
 	}
